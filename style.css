@@ -1,0 +1,36 @@
+*{
+    /*box-shadow: 1px 1px 3px #292929;*/ /*debug*/
+    margin: 0;
+}
+
+/*html{
+    height:100%;
+}*/
+
+.container{
+    display: flex;
+    /*align-items: stretch;
+*/
+
+
+}
+
+.left-panel{
+    flex: 1;
+    background: url("img/darknoise.png") repeat round 100% ;
+    /*background-size: 100% ;*/
+    /*width: 600px;*/
+    /*height: 100%;*/
+    /*overflow: hidden;*/
+    width: 50vw;
+    height: 100vh;
+
+
+}
+
+.right-panel{
+    flex: 1;
+    background: url("img/backgroundWIC.jpeg") repeat round 100% ;
+    width: 50vw;
+    height: 100vh;
+}
