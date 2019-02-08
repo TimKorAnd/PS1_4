@@ -88,8 +88,15 @@ html{
     width:1.2rem;
     border-radius:10%;
     outline:none;
+    color:#202020;
     background-color: #d3bb89;
     position:absolute;
     top:0;
     left:0;
+}
+
+.right-panel__form-1__checkbox:checked + .right-panel__form-1__label-checkbox:after{
+    text-align: center;
+    font-size: 1.2em;
+    content: '\2718';
 }
