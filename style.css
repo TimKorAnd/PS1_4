@@ -19,6 +19,7 @@ html{
 .left-panel{
     flex: 1;
     background: url("img/backgroundWIC.jpeg") repeat round 100% ;
+    /*background-repeat:no-repeat;*/
     width: 50vw;
     height: 100vh;
 }
@@ -51,7 +52,7 @@ html{
 /*label{
     color: #d3bb89;
 }*/
-.right-panel input{
+.right-panel input {
     color: #d3ccc1;
     background: #202020;
     border: none;
@@ -67,18 +68,16 @@ html{
     color:#fef8eb;
 }
 
-/*.right-panel__form-1__checkbox{
-    color: #d3bb89;
-    background-color: #d3bb89;
-}*/
-
+/*start checkbox styling*/
 .right-panel__form-1__checkbox{
     display: none;
-    cursor: pointer;
 }
+
 .right-panel__form-1__label-checkbox{
     position: relative;
     padding-left: 2em;
+    cursor: pointer;
+
 }
 
 .right-panel__form-1__label-checkbox:after{
@@ -99,4 +98,15 @@ html{
     text-align: center;
     font-size: 1.2em;
     content: '\2718';
+}
+/*end checkbox styling*/
+
+.right-panel .right-panel__form-1__submit-button{
+    width: 25vw;
+    height: 3em;
+    color: #fef8eb;
+    font-family: "Open Sans", sans-serif;
+    font-size: 1rem;
+    background: #c19a49;
+    border: none;
 }
