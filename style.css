@@ -1,36 +1,95 @@
+@font-face {
+    font-family: Game_of_Thrones;
+    src: url(fonts/Game_of_Thrones.ttf);
+}
+html{
+    overflow:  hidden;
+}
+
 *{
     /*box-shadow: 1px 1px 3px #292929;*/ /*debug*/
     margin: 0;
+    box-sizing: border-box;
 }
-
-/*html{
-    height:100%;
-}*/
 
 .container{
     display: flex;
-    /*align-items: stretch;
-*/
-
-
 }
 
 .left-panel{
     flex: 1;
-    background: url("img/darknoise.png") repeat round 100% ;
-    /*background-size: 100% ;*/
-    /*width: 600px;*/
-    /*height: 100%;*/
-    /*overflow: hidden;*/
+    background: url("img/backgroundWIC.jpeg") repeat round 100% ;
     width: 50vw;
     height: 100vh;
-
-
 }
 
 .right-panel{
     flex: 1;
-    background: url("img/backgroundWIC.jpeg") repeat round 100% ;
+    background: url("img/darknoise.png") repeat round 100% ;
     width: 50vw;
     height: 100vh;
+    color: #d3bb89;
+    /*display:flex;
+    flex-direction:column;
+    justify-content: flex-start;*/
+
+
+}
+
+.right-panel__head_title{
+    font-family: Game_of_Thrones;
+    font-size: 2rem;
+    /*margin: 10vh auto;*/
+}
+
+.right-panel__form-1{
+    width: 25vw;
+    margin: 20vh auto;
+
+}
+
+/*label{
+    color: #d3bb89;
+}*/
+.right-panel input{
+    color: #d3ccc1;
+    background: #202020;
+    border: none;
+    outline:none;
+}
+
+.right-panel__form-1 hr{
+    color: #d3bb89;             /*for Mozilla*/
+    background-color: #d3bb89; /*for Chrome*/
+}
+.right-panel__form-1 small{
+    font-size: 0.7em;
+    color:#fef8eb;
+}
+
+/*.right-panel__form-1__checkbox{
+    color: #d3bb89;
+    background-color: #d3bb89;
+}*/
+
+.right-panel__form-1__checkbox{
+    display: none;
+    cursor: pointer;
+}
+.right-panel__form-1__label-checkbox{
+    position: relative;
+    padding-left: 2em;
+}
+
+.right-panel__form-1__label-checkbox:after{
+    content:'';
+    display:block;
+    height:1.2rem;
+    width:1.2rem;
+    border-radius:10%;
+    outline:none;
+    background-color: #d3bb89;
+    position:absolute;
+    top:0;
+    left:0;
 }
