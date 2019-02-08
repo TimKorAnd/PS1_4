@@ -1,112 +1,116 @@
 @font-face {
-    font-family: Game_of_Thrones;
-    src: url(fonts/Game_of_Thrones.ttf);
+  font-family: Game_of_Thrones;
+  src: url(fonts/Game_of_Thrones.ttf);
 }
 html{
-    overflow:  hidden;
+  /*sans scroll*/
+  overflow:  hidden;
 }
 
 *{
-    /*box-shadow: 1px 1px 3px #292929;*/ /*debug*/
-    margin: 0;
-    box-sizing: border-box;
+  /*box-shadow: 1px 1px 3px #292929;*/ /*debug*/
+  margin: 0;
+  box-sizing: border-box;
 }
 
 .container{
-    display: flex;
+  display: flex;
 }
 
 .left-panel{
-    flex: 1;
-    background: url("img/backgroundWIC.jpeg") repeat round 100% ;
-    /*background-repeat:no-repeat;*/
-    width: 50vw;
-    height: 100vh;
+  flex: 1;
+  background: url("img/backgroundWIC.jpeg") repeat round 100% ;
+  /*background-repeat:no-repeat;*/
+  width: 50vw;
+  height: 100vh;
 }
 
 .right-panel{
-    flex: 1;
-    background: url("img/darknoise.png") repeat round 100% ;
-    width: 50vw;
-    height: 100vh;
-    color: #d3bb89;
-    /*display:flex;
-    flex-direction:column;
-    justify-content: flex-start;*/
-
-
+  flex: 1;
+  background: url("img/darknoise.png") repeat round 100% ;
+  width: 50vw;
+  height: 100vh;
+  color: #d3bb89;
+  /*display:flex;
+  flex-direction:column;
+  justify-content: flex-start;*/
+  
+  
 }
 
 .right-panel__head_title{
-    font-family: Game_of_Thrones;
-    font-size: 2rem;
-    /*margin: 10vh auto;*/
+  font-family: Game_of_Thrones;
+  font-size: 2rem;
+  /*margin: 10vh auto;*/
 }
 
-.right-panel__form-1{
-    width: 25vw;
-    margin: 20vh auto;
-
+.right-panel__form-1, .right-panel__form-2{
+  width: 25vw;
+  margin: 20vh auto;
+  
 }
 
-/*label{
-    color: #d3bb89;
-}*/
+label{
+  font-family: "EB Garamond", serif;
+}
+
 .right-panel input {
-    color: #d3ccc1;
-    background: #202020;
-    border: none;
-    outline:none;
+  color: #d3ccc1;
+  background: #202020;
+  font-family: "Open Sans", sans-serif;
+  border: none;
 }
 
 .right-panel__form-1 hr{
-    color: #d3bb89;             /*for Mozilla*/
-    background-color: #d3bb89; /*for Chrome*/
+  color: #d3bb89;             /*for Mozilla*/
+  background-color: #d3bb89; /*for Chrome*/
+  
 }
 .right-panel__form-1 small{
-    font-size: 0.7em;
-    color:#fef8eb;
+  font-size: 0.7em;
+  color:#fef8eb;
+  font-family: "Open Sans", sans-serif;
 }
 
 /*start checkbox styling*/
 .right-panel__form-1__checkbox{
-    display: none;
+  display: none;
 }
 
 .right-panel__form-1__label-checkbox{
-    position: relative;
-    padding-left: 2em;
-    cursor: pointer;
-
+  position: relative;
+  padding-left: 2em;
+  cursor: pointer;
+  
 }
 
 .right-panel__form-1__label-checkbox:after{
-    content:'';
-    display:block;
-    height:1.2rem;
-    width:1.2rem;
-    border-radius:10%;
-    outline:none;
-    color:#202020;
-    background-color: #d3bb89;
-    position:absolute;
-    top:0;
-    left:0;
+  content:'';
+  display:block;
+  height:1.2rem;
+  width:1.2rem;
+  border-radius:10%;
+  outline:none;
+  color:#202020;
+  background-color: #d3bb89;
+  position:absolute;
+  top:0;
+  left:0;
 }
 
 .right-panel__form-1__checkbox:checked + .right-panel__form-1__label-checkbox:after{
-    text-align: center;
-    font-size: 1.2em;
-    content: '\2718';
+  text-align: center;
+  font-size: 1.2em;
+  content: '\2718';
 }
 /*end checkbox styling*/
 
 .right-panel .right-panel__form-1__submit-button{
-    width: 25vw;
-    height: 3em;
-    color: #fef8eb;
-    font-family: "Open Sans", sans-serif;
-    font-size: 1rem;
-    background: #c19a49;
-    border: none;
+  width: 25vw;
+  height: 3em;
+  color: #fef8eb;
+  font-family: "Open Sans", sans-serif;
+  font-size: 1rem;
+  background: #c19a49;
+  border: none;
 }
