@@ -19,8 +19,7 @@ html{
 
 .left-panel{
   flex: 1;
-  background: url("img/backgroundWIC.jpeg") repeat round 100% ;
-  /*background-repeat:no-repeat;*/
+  background: url("img/backgroundWIC.jpeg") no-repeat 50% 50% ;
   width: 50vw;
   height: 100vh;
 }
@@ -31,42 +30,46 @@ html{
   width: 50vw;
   height: 100vh;
   color: #d3bb89;
-  /*display:flex;
+  display:flex;
   flex-direction:column;
-  justify-content: flex-start;*/
-  
-  
+  justify-content: center;
 }
 
 .right-panel__head_title{
   font-family: Game_of_Thrones;
   font-size: 2rem;
-  /*margin: 10vh auto;*/
+  margin-bottom: 3rem;
+  text-align: center;
 }
 
 .right-panel__form-1, .right-panel__form-2{
   width: 25vw;
-  margin: 20vh auto;
-  
+  margin: 0 auto;
 }
 
 label{
   font-family: "EB Garamond", serif;
+  
+  
 }
 
 .right-panel input {
   color: #d3ccc1;
   background: #202020;
   font-family: "Open Sans", sans-serif;
+  font-size: 1em;
   border: none;
+  margin-bottom: 1rem;
+  margin-top: 1rem;
 }
 
-.right-panel__form-1 hr{
+.right-panel hr{
   color: #d3bb89;             /*for Mozilla*/
   background-color: #d3bb89; /*for Chrome*/
+  margin-bottom: 1rem;
   
 }
-.right-panel__form-1 small{
+.right-panel small{
   font-size: 0.7em;
   color:#fef8eb;
   font-family: "Open Sans", sans-serif;
@@ -105,12 +108,58 @@ label{
 }
 /*end checkbox styling*/
 
-.right-panel .right-panel__form-1__submit-button{
+.right-panel .right-panel__form-1__submit-button,
+.right-panel .right-panel__form-2__submit-button{
   width: 25vw;
   height: 3em;
   color: #fef8eb;
   font-family: "Open Sans", sans-serif;
   font-size: 1rem;
   background: #c19a49;
-  border: none;
+  margin-top: 3rem;
+  cursor: pointer;
 }
+
+.right-panel__form-2__join-message {
+  border-left: 0.1rem solid #c19a49;
+  padding-left: 2rem;
+  color: #fef8eb;
+  font-family: "Open Sans", sans-serif;
+  font-size: 1rem;
+  margin-bottom: 2rem;
+  
+}
+.right-panel__form2__select-house{
+  width: 25vw;
+  height: 2rem;
+  font-family: "Open Sans", sans-serif;
+  font-size: 1rem;
+  color: #fef8eb;
+  background-color: transparent;
+  border: none;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  -webkit-appearance: none;
+  appearance: none;
+  -moz-appearance: none;
+  cursor: pointer;
+}
+
+.right-panel__form2__wishes{
+  width: 25vw;
+  height: 2rem;
+  font-family: "Open Sans", sans-serif;
+  font-size: 1em;
+  color: #fef8eb;
+  background-color: transparent;
+  border: none;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  resize:none;
+  cursor: pointer;
+
+}
+
+
+
+
