@@ -19,7 +19,8 @@ html{
 
 .left-panel{
   flex: 1;
-  background: url("img/backgroundWIC.jpeg") no-repeat 50% 50% ;
+  background: url("img/backgroundWIC.jpeg") no-repeat 50% 50%;
+  background-size: cover;
   width: 50vw;
   height: 100vh;
 }
@@ -27,6 +28,7 @@ html{
 .right-panel{
   flex: 1;
   background: url("img/darknoise.png") repeat round 100% ;
+  background-size: cover;
   width: 50vw;
   height: 100vh;
   color: #d3bb89;
@@ -56,19 +58,17 @@ label{
 .right-panel input {
   color: #d3ccc1;
   background: #202020;
+  background-color: transparent;
+  width: 25vw;
+  height: 3rem;
   font-family: "Open Sans", sans-serif;
   font-size: 1em;
   border: none;
+  border-bottom: 0.2rem solid #d3bb89;
   margin-bottom: 1rem;
   margin-top: 1rem;
 }
 
-.right-panel hr{
-  color: #d3bb89;             /*for Mozilla*/
-  background-color: #d3bb89; /*for Chrome*/
-  margin-bottom: 1rem;
-  
-}
 .right-panel small{
   font-size: 0.7em;
   color:#fef8eb;
@@ -118,6 +118,7 @@ label{
   background: #c19a49;
   margin-top: 3rem;
   cursor: pointer;
+  border:none;
 }
 
 .right-panel__form-2__join-message {
@@ -144,15 +145,20 @@ label{
   -moz-appearance: none;
   cursor: pointer;
 }
+.right-panel__form2__select-house__option{
+  /*background-color: transparent;*/
+  color: #202020;
+}
 
 .right-panel__form2__wishes{
   width: 25vw;
-  height: 2rem;
+  height: 3rem;
   font-family: "Open Sans", sans-serif;
   font-size: 1em;
   color: #fef8eb;
   background-color: transparent;
   border: none;
+  border-bottom: 0.2rem solid #d3bb89;
   margin-top: 1rem;
   margin-bottom: 1rem;
   resize:none;
