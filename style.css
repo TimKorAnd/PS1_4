@@ -2,22 +2,22 @@
   font-family: Game_of_Thrones;
   src: url(fonts/Game_of_Thrones.ttf);
 }
-html{
+html {
   /*sans scroll*/
-  overflow:  hidden;
+  overflow: hidden;
 }
 
-*{
+* {
   /*box-shadow: 1px 1px 3px #292929;*/ /*debug*/
   margin: 0;
   box-sizing: border-box;
 }
 
-.container{
+.container {
   display: flex;
 }
 
-.left-panel{
+.left-panel {
   flex: 1;
   background: url("img/backgroundWIC.jpeg") no-repeat 50% 50%;
   background-size: cover;
@@ -25,83 +25,100 @@ html{
   height: 100vh;
 }
 
-.right-panel{
+.right-panel {
   flex: 1;
-  background: url("img/darknoise.png") repeat round 100% ;
-  background-size: cover;
+  background: url("img/darknoise.png") repeat round 100%;
   width: 50vw;
   height: 100vh;
   color: #d3bb89;
-  display:flex;
-  flex-direction:column;
+  display: flex;
+  flex-direction: column;
   justify-content: center;
 }
 
-.right-panel__head_title{
-  font-family: Game_of_Thrones;
+.right-panel__head-title {
+  font-family: Game_of_Thrones, Arial, sans-serif;
   font-size: 2rem;
   margin-bottom: 3rem;
   text-align: center;
 }
 
-.right-panel__form-1, .right-panel__form-2{
+.right-panel__form-1, .right-panel__form-2 {
   width: 25vw;
   margin: 0 auto;
 }
 
-label{
+.input__label {
+  font-size: 1.3rem;
   font-family: "EB Garamond", serif;
-  
-  
 }
 
-.right-panel input {
-  color: #d3ccc1;
-  background: #202020;
+.right-panel__input {
+  color: #fef8eb;
   background-color: transparent;
   width: 25vw;
   height: 3rem;
   font-family: "Open Sans", sans-serif;
   font-size: 1em;
   border: none;
+  outline: none; /* delete some magic border around input fields in focus */
   border-bottom: 0.2rem solid #d3bb89;
   margin-bottom: 1rem;
   margin-top: 1rem;
+  padding: 0;
 }
 
-.right-panel small{
+::selection{
+  background: #7b0828;
+}
+
+/* Change Autocomplete styles in Chrome from https://css-tricks.com/snippets/css/change-autocomplete-styles-webkit-browsers/*/
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+  -webkit-text-fill-color: #d3ccc1;
+  -webkit-box-shadow: transparent;
+  transition: background-color 5000s ease-in-out 0s;
+}
+
+.right-panel__form-2__small {
   font-size: 0.7em;
-  color:#fef8eb;
+  color: #fef8eb;
   font-family: "Open Sans", sans-serif;
 }
 
 /*start checkbox styling*/
-.right-panel__form-1__checkbox{
+.right-panel__form-1__checkbox {
   display: none;
 }
 
-.right-panel__form-1__label-checkbox{
+.right-panel__form-1__label-checkbox {
   position: relative;
   padding-left: 2em;
   cursor: pointer;
-  
 }
 
-.right-panel__form-1__label-checkbox:after{
-  content:'';
-  display:block;
-  height:1.2rem;
-  width:1.2rem;
-  border-radius:10%;
-  outline:none;
-  color:#202020;
+.right-panel__form-1__label-checkbox:after {
+  content: '';
+  display: block;
+  height: 1.2rem;
+  width: 1.2rem;
+  border-radius: 10%;
+  color: #202020;
+  outline: none;
   background-color: #d3bb89;
-  position:absolute;
-  top:0;
-  left:0;
+  position: absolute;
+  top: 0;
+  left: 0;
 }
 
-.right-panel__form-1__checkbox:checked + .right-panel__form-1__label-checkbox:after{
+.right-panel__form-1__checkbox:checked + .right-panel__form-1__label-checkbox:after {
   text-align: center;
   font-size: 1.2em;
   content: '\2718';
@@ -109,16 +126,16 @@ label{
 /*end checkbox styling*/
 
 .right-panel .right-panel__form-1__submit-button,
-.right-panel .right-panel__form-2__submit-button{
+.right-panel .right-panel__form-2__submit-button {
   width: 25vw;
   height: 3em;
   color: #fef8eb;
   font-family: "Open Sans", sans-serif;
   font-size: 1rem;
   background: #c19a49;
-  margin-top: 3rem;
+  margin-top: 2rem;
   cursor: pointer;
-  border:none;
+  border: none;
 }
 
 .right-panel__form-2__join-message {
@@ -130,40 +147,42 @@ label{
   margin-bottom: 2rem;
   
 }
-.right-panel__form2__select-house{
+.right-panel__form2__select-house {
   width: 25vw;
-  height: 2rem;
+  height: 3rem;
   font-family: "Open Sans", sans-serif;
   font-size: 1rem;
   color: #fef8eb;
   background-color: transparent;
+  outline: none;
   border: none;
+  border-bottom: 0.2rem solid #d3bb89;
   margin-top: 1rem;
   margin-bottom: 1rem;
   -webkit-appearance: none;
-  appearance: none;
   -moz-appearance: none;
   cursor: pointer;
 }
-.right-panel__form2__select-house__option{
-  /*background-color: transparent;*/
-  color: #202020;
+
+.right-panel__form2__select-house__option {
+  background-color: #202020;
+  color: #fef8eb;
 }
 
-.right-panel__form2__wishes{
+.right-panel__form2__wishes {
   width: 25vw;
   height: 3rem;
   font-family: "Open Sans", sans-serif;
   font-size: 1em;
   color: #fef8eb;
   background-color: transparent;
+  outline: none;
   border: none;
   border-bottom: 0.2rem solid #d3bb89;
   margin-top: 1rem;
   margin-bottom: 1rem;
-  resize:none;
+  resize: none;
   cursor: pointer;
-
 }
 
 
