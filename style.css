@@ -36,6 +36,10 @@ html {
   justify-content: center;
 }
 
+.block-element {
+  display: block;
+}
+
 .right-panel__head-title {
   font-family: Game_of_Thrones, Arial, sans-serif;
   font-size: 2rem;
@@ -133,7 +137,7 @@ select:-webkit-autofill:focus {
   font-family: "Open Sans", sans-serif;
   font-size: 1rem;
   background: #c19a49;
-  margin-top: 2rem;
+  margin-top: 3rem;
   cursor: pointer;
   border: none;
 }
