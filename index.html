@@ -5,18 +5,18 @@
   <link rel="stylesheet" href="style.css">
   <title>GOT Form</title>
 </head>
-<body>
+<body onload="start()">
 <div class="container">
   <section class="left-panel">
   </section>
   <section class="right-panel">
     <form class="right-panel__form-1" action="#" name="form_1">
       <p class="right-panel__head-title block-element">GAME&nbsp;OF&nbsp;THRONES</p>
-      <label class="input__label block-element" for="email">Enter your e-mail:</label>
-      <input class="right-panel__input block-element" type="email" name="email" id="email"
+      <label class="input__label block-element" for="right-panel__form-1__email">Enter your e-mail:</label>
+      <input class="right-panel__input block-element" type="email" name="email" id="right-panel__form-1__email"
              placeholder="arya@westeros.com" required>
       
-      <label class="input__label block-element" for="password"
+      <label class="input__label block-element" for="right-panel__form-1__password"
              title="upper or low case letters, numbers and other different characters required">
         Choose secure password:
       </label>
@@ -24,7 +24,8 @@
             title="upper or low case letters, numbers and other different characters required">
             Must be at least 8 characters
       </small>
-      <input class="right-panel__input block-element" type="password" name="psw" id="password" placeholder="password"
+      <input class="right-panel__input block-element" type="password" name="psw" id="right-panel__form-1__password"
+             placeholder="password"
              title="be sure to remember your password" required>
       
       <div class="right-panel__form-1__div-checkbox">
@@ -32,7 +33,7 @@
                value="Remember me" id="remember-me-checkbox">
         <label for="remember-me-checkbox" class="right-panel__form-1__label-checkbox block-element">Remember me</label>
       </div>
-      <input type="submit" class="right-panel__form-1__submit-button block-element" value="Sign up">
+      <input type="submit" class="right-panel__form-1__submit-button block-element" id="right-panel__form-1__submit-button" value="Sign up" disabled>
     </form>
     <!--<form class="right-panel__form-2" action="" name="form-2">
       <p class="right-panel__head-title block-element">GAME&nbsp;OF&nbsp;THRONES</p>
@@ -66,5 +67,6 @@
     </form>-->
   </section>
 </div>
+<script src="script.js"></script>
 </body>
 </html>
