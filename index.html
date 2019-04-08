@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:display="http://www.w3.org/1999/xhtml">
 <head>
   <meta charset="UTF-8">
   <link rel="stylesheet" href="style.css">
@@ -10,10 +10,10 @@
   <section class="left-panel">
   </section>
   <section class="right-panel">
-    <form class="right-panel__form-1" action="#" name="form_1">
+    <form class="right-panel__form-1" id ="right-panel__form-1"  name="form_1">
       <p class="right-panel__head-title block-element">GAME&nbsp;OF&nbsp;THRONES</p>
       <label class="input__label block-element" for="right-panel__form-1__email">Enter your e-mail:</label>
-      <input class="right-panel__input block-element" type="email" name="email" id="right-panel__form-1__email"
+      <input class="right-panel__input--valid block-element" type="email" name="email" id="right-panel__form-1__email"
              placeholder="arya@westeros.com" required>
       
       <label class="input__label block-element" for="right-panel__form-1__password"
@@ -24,7 +24,7 @@
             title="upper or low case letters, numbers and other different characters required">
             Must be at least 8 characters
       </small>
-      <input class="right-panel__input block-element" type="password" name="psw" id="right-panel__form-1__password"
+      <input class="right-panel__input--valid block-element" type="password" name="psw" id="right-panel__form-1__password"
              placeholder="password"
              title="be sure to remember your password" required>
       
@@ -35,13 +35,13 @@
       </div>
       <input type="submit" class="right-panel__form-1__submit-button block-element" id="right-panel__form-1__submit-button" value="Sign up">
     </form>
-    <!--<form class="right-panel__form-2" action="" name="form-2">
-      <p class="right-panel__head-title block-element">GAME&nbsp;OF&nbsp;THRONES</p>
+    <form class="right-panel__form-2 hidden" id="right-panel__form-2" action="" name="form-2">
+      <p class="right-panel__form2right-panel__head-title block-element">GAME&nbsp;OF&nbsp;THRONES</p>
       <p class="right-panel__form-2__join-message block-element">You have successfully joined the game.
       Tell us more about yourself.</p>
       <label  class="input__label block-element" for="username">Who are you?</label>
       <small class="right-panel__form-2__small block-element">Alpha-numeric username</small>
-      <input class="right-panel__input block-element" type="text" name="username" id="username" placeholder="arya">
+      <input class="right-panel__input--valid block-element" type="text" name="username" id="username" placeholder="arya">
       
       <label  class="input__label block-element" for="selecthouse">Your Great House</label>
       <select class="right-panel__form2__select-house block-element" name="selecthouse" id="selecthouse" size="1">
@@ -64,7 +64,7 @@
       <textarea class="right-panel__form2__wishes block-element" name="userwishes" id="userwishes"
                 placeholder="I have a long TOKILL list.."></textarea>
       <input type="submit" class="right-panel__form-2__submit-button block-element" value="Save">
-    </form>-->
+    </form>
   </section>
 </div>
 <script src="script.js"></script>

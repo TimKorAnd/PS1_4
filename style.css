@@ -57,7 +57,7 @@ html {
   font-family: "EB Garamond", serif;
 }
 
-.right-panel__input {
+.right-panel__input--valid {
   color: #fef8eb;
   background-color: transparent;
   width: 25vw;
@@ -73,15 +73,14 @@ html {
 }
 
 .right-panel__input--invalid {
-  color: #7b0828;
+  color: #fef8eb;
   background-color: transparent;
   width: 25vw;
   height: 3rem;
   font-family: "Open Sans", sans-serif;
   font-size: 1em;
-  border: none;
   outline: none; /* delete some magic border around input fields in focus */
-  border-bottom: 0.2rem solid #7b0828;
+  border: 0.2rem solid #7b0828;
   margin-bottom: 1rem;
   margin-top: 1rem;
   padding: 0;
@@ -204,6 +203,8 @@ select:-webkit-autofill:focus {
   cursor: pointer;
 }
 
-
+.hidden {
+  display:none;
+}
 
 
