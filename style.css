@@ -79,8 +79,9 @@ html {
   height: 3rem;
   font-family: "Open Sans", sans-serif;
   font-size: 1em;
+  border: none;
   outline: none; /* delete some magic border around input fields in focus */
-  border: 0.2rem solid #7b0828;
+  border-bottom: 0.2rem solid #7b0828;
   margin-bottom: 1rem;
   margin-top: 1rem;
   padding: 0;
@@ -204,7 +205,7 @@ select:-webkit-autofill:focus {
 }
 
 .hidden {
-  display:none;
+  display: none ;
 }
 
 

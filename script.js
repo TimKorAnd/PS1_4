@@ -1,43 +1,47 @@
 /* CONSTANTS */
 
 const EMAIL_VALID_REGEXP = /^(\w+(-(?=\w))?\w*)@\w+\.(\w+(-(?=\w))?\w+)$/;
-const PASSWORD_VALID_REGEX = /^(\w|\W){8,}$/;
-const NOT_EMPTY_VALID = /^.+$/;
+//const PASSWORD_VALID_REGEX = /^(\w|\W){8,}$/;
+const PASSWORD_VALID_REGEX = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{8,}$/;
+const VALID_CLASS = '--valid';
+const INVALID_CLASS = '--invalid';
 
 
-/*class for input*/
+/*class for inputs*/
 class InputField {
     constructor(inputId, VALID_REGEXP){
     this.inputId = inputId;
     this.element = document.getElementById(this.inputId);
     this.VALID_REGEXP = VALID_REGEXP;
     }
-
+    /*return true if regexp match the input value*/
     isValid() {
             return this.VALID_REGEXP.test(this.element.value);
     };
-
+    /*write valid/invalid class in input DOM elem*/
     viewValidation() {
-            let statusSearch = '--valid', statusReplace = '--invalid';
+            let statusSearch = VALID_CLASS, statusReplace = INVALID_CLASS;
             if (this.isValid()) {
                 [statusSearch, statusReplace] = [statusReplace, statusSearch];
             };
-
-            console.log(this.element.className);
             this.element.className = this.element.className.replace(statusSearch, statusReplace);
         };
 }
 
-function nextForm(btnForm1, emailInput, passwordInput) {
-    console.log('btn    ');
-    if (emailInput.isValid() && passwordInput.isValid()) {
-        /* btnForm1.setAttribute('disabled', 'false');*/
-        console.log('btn  ok  ');
-        return true;
-    } else {
-        console.log('btn    close');
-        return false;
-    }
+function submitHandler(event, btnSubmit, inputElems, submitFunc) {
+    event.preventDefault();
+    if (inputElems.every((currInputElem) => {
+        return currInputElem.isValid();
+    })) {
+        submitFunc();
+    } /*else {
+        event.preventDefault();
+    }*/
+}
+
+function changeSubmitedForm(submitedForm, nextForm) {
+    submitedForm.style.display = 'none';
+    nextForm.style.display = 'block';
 }
 
 function start(){
@@ -57,13 +61,11 @@ function start(){
         ,{once:true});
 
     const btnForm1 = document.getElementById('right-panel__form-1__submit-button');
-    /*btnForm1.disabled = true;*/
-    /*btnForm1.addEventListener('submit', () => nextForm(btnForm1, emailInput, passwordInput));*/
+    /*btnForm1.addEventListener('submit', (event) => submitHandler(event, btnForm1, [emailInput, passwordInput]));*/
 
     const form1 = document.getElementById('right-panel__form-1');
-    form1.addEventListener('submit',() => nextForm(btnForm1, emailInput, passwordInput));
-
-
+    const form2 = document.getElementById('right-panel__form-2');
+    form1.addEventListener('submit',(event) => submitHandler(event, btnForm1, [emailInput, passwordInput], () => changeSubmitedForm(form1,form2)));
 
 }
 
