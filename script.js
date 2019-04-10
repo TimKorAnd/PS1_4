@@ -44,7 +44,7 @@ function changeSubmitedForm(submitedForm, nextForm) {
     nextForm.style.display = 'block';
 }
 
-function start(){
+function eventsLoader(){
     /*get form1 DOM elems */
     let emailInput = new InputField('right-panel__form-1__email', EMAIL_VALID_REGEXP);
     emailInput.element.addEventListener('blur', () =>  {

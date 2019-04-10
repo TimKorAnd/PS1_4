@@ -5,7 +5,7 @@
   <link rel="stylesheet" href="style.css">
   <title>GOT Form</title>
 </head>
-<body onload="start()">
+<body onload="eventsLoader()">
 <div class="container">
   <section class="left-panel">
   </section>
@@ -17,7 +17,7 @@
              placeholder="arya@westeros.com" required>
       
       <label class="input__label block-element" for="right-panel__form-1__password"
-             title="upper or low case letters, numbers and other different characters required">
+             title="should contain at least one upper case letter, one low case letter and one digit">
         Choose secure password:
       </label>
       <small class="right-panel__form-2__small block-element"
@@ -26,7 +26,7 @@
       </small>
       <input class="right-panel__input--valid block-right-panel__form-2element" type="password" name="psw" id="right-panel__form-1__password"
              placeholder="password"
-             title="be sure to remember your password" required>
+             title="should contain at least one upper case letter, one low case letter and one digit" required>
       
       <div class="right-panel__form-1__div-checkbox">
         <input type="checkbox" class="right-panel__form-1__checkbox block-element" name="remember-me"
