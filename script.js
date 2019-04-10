@@ -23,7 +23,7 @@ class InputField {
             let statusSearch = VALID_CLASS, statusReplace = INVALID_CLASS;
             if (this.isValid()) {
                 [statusSearch, statusReplace] = [statusReplace, statusSearch];
-            };
+            }
             this.element.className = this.element.className.replace(statusSearch, statusReplace);
         };
 }
@@ -34,9 +34,7 @@ function submitHandler(event, btnSubmit, inputElems, submitFunc) {
         return currInputElem.isValid();
     })) {
         submitFunc();
-    } /*else {
-        event.preventDefault();
-    }*/
+    }
 }
 
 function changeSubmitedForm(submitedForm, nextForm) {
