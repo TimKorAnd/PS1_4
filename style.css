@@ -47,7 +47,7 @@ html {
   text-align: center;
 }
 
-.right-panel__form-1, .right-panel__form-2 {
+.right-panel__form-1, .right-panel__form-2, .right-panel__form-3 {
   width: 25vw;
   margin: 0 auto;
 }
@@ -145,7 +145,8 @@ select:-webkit-autofill:focus {
 /*end checkbox styling*/
 
 .right-panel .right-panel__form-1__submit-button,
-.right-panel .right-panel__form-2__submit-button {
+.right-panel .right-panel__form-2__submit-button,
+.right-panel .right-panel__form-3__submit-button {
   width: 25vw;
   height: 3em;
   color: #fef8eb;
@@ -157,7 +158,7 @@ select:-webkit-autofill:focus {
   border: none;
 }
 
-.right-panel__form-2__join-message {
+.right-panel__form-2__join-message, .right-panel__form-3__message {
   border-left: 0.1rem solid #c19a49;
   padding-left: 2rem;
   color: #fef8eb;
@@ -169,7 +170,7 @@ select:-webkit-autofill:focus {
 .right-panel__form2__select-house {
   width: 25vw;
   height: 3rem;
-  font-family: "Open Sans", sans-serif;
+  /*font-family: "Open Sans", sans-serif;
   font-size: 1rem;
   color: #fef8eb;
   background-color: transparent;
@@ -177,7 +178,7 @@ select:-webkit-autofill:focus {
   border: none;
   border-bottom: 0.2rem solid #d3bb89;
   margin-top: 1rem;
-  margin-bottom: 1rem;
+  margin-bottom: 1rem;*/
   -webkit-appearance: none;
   -moz-appearance: none;
   cursor: pointer;
@@ -191,15 +192,6 @@ select:-webkit-autofill:focus {
 .right-panel__form2__wishes {
   width: 25vw;
   height: 3rem;
-  font-family: "Open Sans", sans-serif;
-  font-size: 1em;
-  color: #fef8eb;
-  background-color: transparent;
-  outline: none;
-  border: none;
-  border-bottom: 0.2rem solid #d3bb89;
-  margin-top: 1rem;
-  margin-bottom: 1rem;
   resize: none;
   cursor: pointer;
 }

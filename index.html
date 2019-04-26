@@ -39,12 +39,13 @@
       <p class="right-panel__form2 right-panel__head-title block-element">GAME&nbsp;OF&nbsp;THRONES</p>
       <p class="right-panel__form-2__join-message block-element">You have successfully joined the game.
       Tell us more about yourself.</p>
-      <label  class="input__label block-element" for="username">Who are you?</label>
+      <label  class="input__label block-element" for="right-panel__form-2__username">Who are you?</label>
       <small class="right-panel__form-2__small block-element">Alpha-numeric username</small>
-      <input class="right-panel__input--valid block-element" type="text" name="username" id="username" placeholder="arya">
+      <input class="right-panel__input--valid block-element" type="text" name="username" id="right-panel__form-2__username"
+             placeholder="arya">
       
       <label  class="input__label block-element" for="selecthouse">Your Great House</label>
-      <select class="right-panel__form2__select-house block-element" name="selecthouse" id="selecthouse" size="1">
+      <select class="right-panel__form2__select-house right-panel__input--valid block-element" name="selecthouse" id="selecthouse" size="1">
         <option class="right-panel__form2__select-house__option" value="" selected disabled>Select House</option>
         <option class="right-panel__form2__select-house__option" value="House Stark">House Stark</option>
         <option class="right-panel__form2__select-house__option"  value="House Lannister">House Lannister</option>
@@ -60,10 +61,16 @@
         <option class="right-panel__form2__select-house__option"  value="The Night’s Watch">The Night’s Watch</option>
       </select>
       
-      <label  class="input__label block-element" for="userwishes">Your preferences, hobbies, wishes, etc.</label>
-      <textarea class="right-panel__form2__wishes block-element" name="userwishes" id="userwishes"
+      <label  class="input__label block-element" for="right-panel__form-2__userwishes">Your preferences, hobbies, wishes, etc.</label>
+      <textarea class="right-panel__form2__wishes right-panel__input--valid block-element" name="userwishes" id="right-panel__form-2__userwishes"
                 placeholder="I have a long TOKILL list.."></textarea>
       <input type="submit" class="right-panel__form-2__submit-button block-element" value="Save">
+    </form>
+    <form class="right-panel__form-3 hidden" id="right-panel__form-3">
+      <div>
+        <p class="right-panel__form-3__message block-element">coming soon..</p>
+        <input type="submit" class="right-panel__form-3__submit-button block-element" value="Save">
+      </div>
     </form>
   </section>
 </div>
