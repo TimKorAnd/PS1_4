@@ -13,11 +13,12 @@ const INVALID_CLASS = '--invalid';
 
 /*class for inputs*/
 class InputField {
-    constructor(inputId, VALID_REGEXP, showPin = false){
+    constructor(inputId, VALID_REGEXP, isShowPin = false){
         this.inputId = inputId;
         this.element = document.getElementById(this.inputId);
         this.VALID_REGEXP = VALID_REGEXP;
-        if (showPin) {this.showPin()};
+        this.isShowPin = isShowPin;
+
     }
     /*return true if regexp match the input value*/
     isValid() {
@@ -28,23 +29,29 @@ class InputField {
     };
     /*write valid/invalid class in input DOM elem*/
     viewValidation() {
-            let statusSearch = VALID_CLASS, statusReplace = INVALID_CLASS;
-            if (this.isValid()) {
-                [statusSearch, statusReplace] = [statusReplace, statusSearch];
-            }
-            this.element.className = this.element.className.replace(statusSearch, statusReplace);
+        if (this.isShowPin) {this.showPin();};
+        let statusSearch = VALID_CLASS, statusReplace = INVALID_CLASS;
+        if (this.isValid()) {
+            [statusSearch, statusReplace] = [statusReplace, statusSearch];
+        }
+        this.element.className = this.element.className.replace(statusSearch, statusReplace);
         };
     /**/
     showPin() {
+        let oldPlaceHolder = this.element.placeholder;
         console.log('showPinIsComming');
-        let pinElem = document.createElement('div');
+        /*let pinElem = document.createElement('div');
         let pinContent = document.createTextNode(this.element.title);
         let att = document.createAttribute('class');
         att.value = 'pin';
+        pinElem.setAttributeNode(att);
         pinElem.appendChild(pinContent);
-        pinElem.
-
-        this.element.appendChild('<div>'+this.element.title + '</div>')
+        this.element.parentNode.insertBefore(pinElem,this.element);*/
+        this.element.placeholder += this.element.title;
+        setTimeout(() => {
+            /*document.body.removeChild(instance);*/
+            this.element.placeholder = oldPlaceHolder;
+        }, 5000);
     }
 }
 
@@ -72,7 +79,7 @@ function eventsLoader(){
         }
         ,{once:true});
 
-    let passwordInput = new InputField('right-panel__form-1__password', PASSWORD_VALID_REGEX);
+    let passwordInput = new InputField('right-panel__form-1__password', PASSWORD_VALID_REGEX, true);
     passwordInput.element.addEventListener('blur', () =>  {
             passwordInput.viewValidation();
             passwordInput.element.addEventListener('input', passwordInput.viewValidation.bind(passwordInput),{once:false});

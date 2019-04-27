@@ -196,9 +196,14 @@ select:-webkit-autofill:focus {
   cursor: pointer;
 }
 
-input:focus::title {
+input:focus::placeholder {
   font-size: 10px; /* Размер шрифта */
   transform: translateY(-16px); /* Сдвигаем вверх */
+}
+
+.pin {
+  position: absolute;
+
 }
 
 .hidden {
