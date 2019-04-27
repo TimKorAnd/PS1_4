@@ -1,3 +1,4 @@
+window.onload = () => {eventsLoader()};
 /* CONSTANTS */
 
 const EMAIL_VALID_REGEXP = /^(\w+(-(?=\w))?\w*)@\w+\.(\w+(-(?=\w))?\w+)$/;
@@ -12,10 +13,11 @@ const INVALID_CLASS = '--invalid';
 
 /*class for inputs*/
 class InputField {
-    constructor(inputId, VALID_REGEXP){
+    constructor(inputId, VALID_REGEXP, showPin = false){
         this.inputId = inputId;
         this.element = document.getElementById(this.inputId);
         this.VALID_REGEXP = VALID_REGEXP;
+        if (showPin) {this.showPin()};
     }
     /*return true if regexp match the input value*/
     isValid() {
@@ -32,11 +34,24 @@ class InputField {
             }
             this.element.className = this.element.className.replace(statusSearch, statusReplace);
         };
+    /**/
+    showPin() {
+        console.log('showPinIsComming');
+        let pinElem = document.createElement('div');
+        let pinContent = document.createTextNode(this.element.title);
+        let att = document.createAttribute('class');
+        att.value = 'pin';
+        pinElem.appendChild(pinContent);
+        pinElem.
+
+        this.element.appendChild('<div>'+this.element.title + '</div>')
+    }
 }
 
 function submitHandler(event, btnSubmit, inputElems, submitFunc) {
     event.preventDefault();
     if (inputElems.every((currInputElem) => {
+        currInputElem.viewValidation();
         return currInputElem.isValid();
     })) {
         submitFunc();

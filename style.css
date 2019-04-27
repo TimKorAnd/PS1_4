@@ -196,6 +196,11 @@ select:-webkit-autofill:focus {
   cursor: pointer;
 }
 
+input:focus::title {
+  font-size: 10px; /* Размер шрифта */
+  transform: translateY(-16px); /* Сдвигаем вверх */
+}
+
 .hidden {
   display: none ;
 }
