@@ -13,11 +13,14 @@ const INVALID_CLASS = '--invalid';
 
 /*class for inputs*/
 class InputField {
-    constructor(inputId, VALID_REGEXP, isShowPin = false){
+    constructor(inputId, VALID_REGEXP, firstEventType, secondEventType, isShowPin = false){
         this.inputId = inputId;
         this.element = document.getElementById(this.inputId);
         this.VALID_REGEXP = VALID_REGEXP;
         this.isShowPin = isShowPin;
+        this.addEvents(firstEventType, secondEventType);
+        /*if (isShowPin)
+        this.element.addEventListener('focus',this.showPin.bind(this));*/
 
     }
     /*return true if regexp match the input value*/
@@ -29,29 +32,47 @@ class InputField {
     };
     /*write valid/invalid class in input DOM elem*/
     viewValidation() {
-        if (this.isShowPin) {this.showPin();};
+        /*if (this.isShowPin) {this.showPin();};*/
         let statusSearch = VALID_CLASS, statusReplace = INVALID_CLASS;
         if (this.isValid()) {
             [statusSearch, statusReplace] = [statusReplace, statusSearch];
+            this.showPin(false);
+        } else {
+            if (this.isShowPin)
+            this.showPin(true);
         }
         this.element.className = this.element.className.replace(statusSearch, statusReplace);
         };
     /**/
-    showPin() {
-        let oldPlaceHolder = this.element.placeholder;
+    showPin(displayPin) {
+        /*let oldPlaceHolder = this.element.placeholder;*/
+        if (this.element.parentElement.querySelector('.pin') != null && displayPin) {
+            return;
+        }
+        if (!displayPin ){
+            if (this.element.parentElement.querySelector('.pin') != null) {
+                this.element.parentElement.querySelector('.pin').remove();
+            }
+            return;
+        }
         console.log('showPinIsComming');
-        /*let pinElem = document.createElement('div');
+        let pinElem = document.createElement('div');
         let pinContent = document.createTextNode(this.element.title);
         let att = document.createAttribute('class');
         att.value = 'pin';
         pinElem.setAttributeNode(att);
         pinElem.appendChild(pinContent);
-        this.element.parentNode.insertBefore(pinElem,this.element);*/
-        this.element.placeholder += this.element.title;
-        setTimeout(() => {
-            /*document.body.removeChild(instance);*/
-            this.element.placeholder = oldPlaceHolder;
-        }, 5000);
+        this.element.parentNode.insertBefore(pinElem,this.element);
+        /*this.element.placeholder += this.element.title;*/
+
+    }
+
+    addEvents(firstEventType,secondEventType) {
+        this.element.addEventListener(firstEventType, () =>  {
+                this.viewValidation();
+                this.element.addEventListener(secondEventType, this.viewValidation.bind(this),{once:false});
+            }
+            ,{once:true});
     }
 }
 
@@ -72,40 +93,11 @@ function changeSubmitedForm(submitedForm, nextForm) {
 
 function eventsLoader(){
     /*get form1 DOM elems */
-    let emailInput = new InputField('right-panel__form-1__email', EMAIL_VALID_REGEXP);
-    emailInput.element.addEventListener('blur', () =>  {
-            emailInput.viewValidation();
-            emailInput.element.addEventListener('input', emailInput.viewValidation.bind(emailInput),{once:false});
-        }
-        ,{once:true});
-
-    let passwordInput = new InputField('right-panel__form-1__password', PASSWORD_VALID_REGEX, true);
-    passwordInput.element.addEventListener('blur', () =>  {
-            passwordInput.viewValidation();
-            passwordInput.element.addEventListener('input', passwordInput.viewValidation.bind(passwordInput),{once:false});
-        }
-        ,{once:true});
-
-    let usernameInput = new InputField('right-panel__form-2__username', USERNAME_VALID_REGEX);
-    usernameInput.element.addEventListener('blur', () =>  {
-            usernameInput.viewValidation();
-            usernameInput.element.addEventListener('input', usernameInput.viewValidation.bind(usernameInput),{once:false});
-        }
-        ,{once:true});
-
-    let userWishesTextArea = new InputField('right-panel__form-2__userwishes', USERWISHES_VALID_REGEX);
-    userWishesTextArea.element.addEventListener('blur', () =>  {
-            userWishesTextArea.viewValidation();
-            userWishesTextArea.element.addEventListener('input', userWishesTextArea.viewValidation.bind(userWishesTextArea),{once:false});
-        }
-        ,{once:true});
-
-    let selectHouse = new InputField('selecthouse', SELECTHOUSE_VALID_REGEX);
-    selectHouse.element.addEventListener('blur', () =>  {
-            selectHouse.viewValidation();
-            selectHouse.element.addEventListener('input', selectHouse.viewValidation.bind(selectHouse),{once:false});
-        }
-        ,{once:true});
+    let emailInput = new InputField('right-panel__form-1__email', EMAIL_VALID_REGEXP, 'blur','input');
+    let passwordInput = new InputField('right-panel__form-1__password', PASSWORD_VALID_REGEX, 'blur', 'input',true);
+    let usernameInput = new InputField('right-panel__form-2__username', USERNAME_VALID_REGEX, 'blur', 'input');
+    let userWishesTextArea = new InputField('right-panel__form-2__userwishes', USERWISHES_VALID_REGEX, 'blur', 'input');
+    let selectHouse = new InputField('selecthouse', SELECTHOUSE_VALID_REGEX, 'blur', 'input');
 
     const btnForm1 = document.getElementById('right-panel__form-1__submit-button');
     const btnForm2 = document.getElementById('right-panel__form-2__submit-button');

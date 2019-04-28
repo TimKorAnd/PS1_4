@@ -197,14 +197,20 @@ select:-webkit-autofill:focus {
 }
 
 input:focus::placeholder {
-  font-size: 10px; /* Размер шрифта */
+  font-size: 0.7em;; /* Размер шрифта */
   transform: translateY(-16px); /* Сдвигаем вверх */
 }
 
 .pin {
   position: absolute;
+  opacity: 50%;
+  /*transition: opacity 3s;*/
+  font-size: 0.7em;
+  color: #fef8eb;
+  font-family: "Open Sans", sans-serif;
 
 }
+
 
 .hidden {
   display: none ;
