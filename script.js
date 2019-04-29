@@ -45,7 +45,6 @@ class InputField {
         };
     /**/
     showPin(displayPin) {
-        /*let oldPlaceHolder = this.element.placeholder;*/
         if (this.element.parentElement.querySelector('.pin') != null && displayPin) {
             return;
         }
@@ -63,8 +62,6 @@ class InputField {
         pinElem.setAttributeNode(att);
         pinElem.appendChild(pinContent);
         this.element.parentNode.insertBefore(pinElem,this.element);
-        /*this.element.placeholder += this.element.title;*/
-
     }
 
     addEvents(firstEventType,secondEventType) {

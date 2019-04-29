@@ -1,7 +1,11 @@
+@import url('https://fonts.googleapis.com/css?family=EB+Garamond');
+
 @font-face {
   font-family: Game_of_Thrones;
   src: url(fonts/Game_of_Thrones.ttf);
 }
+
+
 html {
   /*sans scroll*/
   overflow: hidden;
@@ -198,7 +202,7 @@ select:-webkit-autofill:focus {
 
 input:focus::placeholder {
   font-size: 0.7em;; /* Размер шрифта */
-  transform: translateY(-16px); /* Сдвигаем вверх */
+  transform: translateY(-1.2em); /* Сдвигаем вверх */
 }
 
 .pin {
