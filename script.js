@@ -7,8 +7,7 @@ const PASSWORD_VALID_REGEX = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{8,}$/;
 const USERNAME_VALID_REGEX = /^[\d\w]+$/;
 const USERWISHES_VALID_REGEX = /^.+$/;
 const SELECTHOUSE_VALID_REGEX = /.+/;
-const VALID_CLASS = '--valid';
-const INVALID_CLASS = '--invalid';
+const ERROR_FIELD_CLASS = 'input--invalid';
 
 /*class for inputs*/
 class InputField {
@@ -28,15 +27,15 @@ class InputField {
     };
     /*write valid/invalid class in input DOM elem*/
     viewValidation() {
-        let statusSearch = VALID_CLASS, statusReplace = INVALID_CLASS;
         if (this.isValid()) {
-            [statusSearch, statusReplace] = [statusReplace, statusSearch];
+            this.element.classList.remove(ERROR_FIELD_CLASS);
             this.showPin(false);
         } else {
+            this.element.classList.add(ERROR_FIELD_CLASS);
             if (this.isShowPin)
             this.showPin(true);
         }
-        this.element.className = this.element.className.replace(statusSearch, statusReplace);
+
         };
     /*show pin for input from input's title*/
     showPin(displayPin) {
@@ -84,19 +83,19 @@ function changeSubmitedForm(submitedForm, nextForm) {
 
 function eventsLoader(){
     /*get form1 DOM elems */
-    let emailInput = new InputField('right-panel__form-1__email', EMAIL_VALID_REGEXP, 'blur','input');
-    let passwordInput = new InputField('right-panel__form-1__password', PASSWORD_VALID_REGEX, 'blur', 'input',true);
+    let emailInput = new InputField('user-email', EMAIL_VALID_REGEXP, 'blur','input');
+    let passwordInput = new InputField('user-password', PASSWORD_VALID_REGEX, 'blur', 'input',true);
     /*get form2 DOM elems */
-    let usernameInput = new InputField('right-panel__form-2__username', USERNAME_VALID_REGEX, 'blur', 'input');
-    let userWishesTextArea = new InputField('right-panel__form-2__userwishes', USERWISHES_VALID_REGEX, 'blur', 'input');
+    let usernameInput = new InputField('username', USERNAME_VALID_REGEX, 'blur', 'input');
+    let userWishesTextArea = new InputField('user-wishes', USERWISHES_VALID_REGEX, 'blur', 'input');
     let selectHouse = new InputField('selecthouse', SELECTHOUSE_VALID_REGEX, 'blur', 'input');
 
-    const btnForm1 = document.getElementById('right-panel__form-1__submit-button');
-    const btnForm2 = document.getElementById('right-panel__form-2__submit-button');
+    const btnForm1 = document.getElementById('form-1__submit-button');
+    const btnForm2 = document.getElementById('form-2__submit-button');
 
-    const form1 = document.getElementById('right-panel__form-1');
-    const form2 = document.getElementById('right-panel__form-2');
-    const form3 = document.getElementById('right-panel__form-3');
+    const form1 = document.getElementById('reg-form-1');
+    const form2 = document.getElementById('reg-form-2');
+    const form3 = document.getElementById('reg-form-3');
 
     form1.addEventListener('submit',(event) => submitHandler(event, btnForm1,
         [emailInput, passwordInput], () => changeSubmitedForm(form1,form2)));
