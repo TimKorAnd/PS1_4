@@ -4,6 +4,11 @@
   <meta charset="UTF-8">
   <link rel="stylesheet" href="style.css">
   <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+<!--  jquery-->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<!--  dropdown plugin-->
+  <link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-dropdown/2.0.3/jquery.dropdown.min.css" />
+
   <title>GOT Form</title>
 </head>
 <body>
@@ -45,7 +50,7 @@
       <input class="nav-panel__input block-element" type="text" name="username" id="username"
              placeholder="arya">
       
-      <label  class="input__label block-element" for="selecthouse">Your Great House</label>
+      <!--<label  class="input__label block-element" for="selecthouse">Your Great House</label>
       <select class="nav-panel__select-house nav-panel__input block-element" name="selecthouse" id="selecthouse" size="1">
         <option class="nav-panel__select-house-option" value="" selected disabled>Select House</option>
         <option class="nav-panel__select-house-option" value="House Stark">House Stark</option>
@@ -60,7 +65,27 @@
         <option class="nav-panel__select-house-option" value="House Bolton">House Bolton</option>
         <option class="nav-panel__select-house-option" value="House Frey">House Frey</option>
         <option class="nav-panel__select-house-option" value="The Night’s Watch">The Night’s Watch</option>
-      </select>
+      </select>-->
+
+      <div id="jq-dropdown-selecthouse" class="jq-dropdown jq-dropdown-tip">
+        <ul class="jq-dropdown-menu">
+
+          <li class="1nav-panel__select-house-option" value="" >Select House</li>
+          <li class="1nav-panel__select-house-option" data-jq-dropdown="#jq-dropdown-selecthouse" value="House Stark">House Stark</li>
+          <li class="1nav-panel__select-house-option" data-jq-dropdown="#jq-dropdown-selecthouse"  value="House Lannister">House Lannister</li>
+          <li class="1nav-panel__select-house-option" data-jq-dropdown="#jq-dropdown-selecthouse"  value="House Targaryen">House Targaryen</li>
+          <li class="1nav-panel__select-house-option" data-jq-dropdown="#jq-dropdown-selecthouse"  value="House Baratheon">House Baratheon</li>
+          <li class="1nav-panel__select-house-option" data-jq-dropdown="#jq-dropdown-selecthouse"  value="House Tyrell">House Tyrell</li>
+          <li class="1nav-panel__select-house-option" data-jq-dropdown="#jq-dropdown-selecthouse"  value="House Martell">House Martell</li>
+          <li class="1nav-panel__select-house-option" data-jq-dropdown="#jq-dropdown-selecthouse"  value="House Greyjoy">House Greyjoy</li>
+          <li class="1nav-panel__select-house-option" data-jq-dropdown="#jq-dropdown-selecthouse"  value="House Arryn">House Arryn</li>
+          <li class="1nav-panel__select-house-option" data-jq-dropdown="#jq-dropdown-selecthouse"  value="House Tully">House Tully</li>
+          <li class="1nav-panel__select-house-option" data-jq-dropdown="#jq-dropdown-selecthouse"  value="House Bolton">House Bolton</li>
+          <li class="1nav-panel__select-house-option" data-jq-dropdown="#jq-dropdown-selecthouse"  value="House Frey">House Frey</li>
+          <li class="1nav-panel__select-house-option" data-jq-dropdown="#jq-dropdown-selecthouse"  value="The Night’s Watch">The Night’s Watch</li>
+
+        </ul>
+      </div>
       
       <label  class="input__label block-element" for="user-wishes">Your preferences, hobbies, wishes, etc.</label>
       <textarea class="nav-panel__wishes nav-panel__input block-element" name="userwishes" id="user-wishes"
@@ -76,5 +101,6 @@
   </section>
 </div>
 <script src="script.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-dropdown/2.0.3/jquery.dropdown.min.js"></script>
 </body>
 </html>
