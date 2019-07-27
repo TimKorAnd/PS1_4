@@ -4,16 +4,21 @@
   <meta charset="UTF-8">
   <link rel="stylesheet" href="style.css">
   <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
-  <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
-  <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<!--  slick-slider-->
+  <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+  <link rel="stylesheet" type="text/css" href="./plugins/slick-slider-1.8.1/slick-theme.css"/>
+  <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+<!--  select2-->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.8/css/select2.min.css" rel="stylesheet" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.8/js/select2.min.js"></script>
   <title>GOT Form</title>
 </head>
 <body>
 <div class="container">
   <section class="great-house-logo-panel">
-    <div class="houses-slider">
-      <div><img src="img/arryn.png"  alt="546"></div>
+    <div class="houses-slider" id="houses-slider">
+      <div><img src="img/arryn.png"></div>
       <div><img src="img/baratheon.png" ></div>
       <div><img src="img/bolton.png" ></div>
       <div><img src="img/frey.png" ></div>
@@ -22,7 +27,7 @@
       <div><img src="img/martell.png" ></div>
       <div><img src="img/nightwatchs.png" ></div>
       <div><img src="img/stark.png" ></div>
-      <div><img src="img/targarien.png"  alt="613"></div>
+      <div><img src="img/targarien.png"></div>
       <div><img src="img/tully.png" > </div>
       <div><img src="img/tyrell.png" ></div>
     </div>
@@ -64,7 +69,7 @@
       
       <label  class="input__label block-element" for="selecthouse">Your Great House</label>
       <select class="nav-panel__select-house nav-panel__input block-element" name="selecthouse" id="selecthouse" size="1">
-        <option class="nav-panel__select-house-option" value="" selected disabled>Select House</option>
+<!--        <option class="nav-panel__select-house-option" value="" selected disabled>Select House</option>-->
         <option class="nav-panel__select-house-option" value="House Stark">House Stark</option>
         <option class="nav-panel__select-house-option" value="House Lannister">House Lannister</option>
         <option class="nav-panel__select-house-option" value="House Targaryen">House Targaryen</option>
@@ -92,7 +97,7 @@
     </form>
   </section>
 </div>
-<script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+
 <script src="script.js"></script>
 </body>
 </html>

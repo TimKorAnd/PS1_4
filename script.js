@@ -1,13 +1,14 @@
 'use strict'
 $(() =>{
-window.onload = () => {eventsLoader()};
-$('.houses-slider').slick({
+eventsLoader();
+$('#houses-slider').slick({
     arrows: true,
     dots: true,
-    centerMode: true,
-    adaptiveHead: true,
-    slidesToShow: 1,
-    infinite: true
+    variableWidth: true
+});
+$('#selecthouse').select2({
+    placeholder: 'Select House',
+    dropdownAutoWidth: true
 });
 })
 /* CONSTANTS */
