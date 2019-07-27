@@ -1,4 +1,15 @@
+'use strict'
+$(() =>{
 window.onload = () => {eventsLoader()};
+$('.houses-slider').slick({
+    arrows: true,
+    dots: true,
+    centerMode: true,
+    adaptiveHead: true,
+    slidesToShow: 1,
+    infinite: true
+});
+})
 /* CONSTANTS */
 
 const EMAIL_VALID_REGEXP = /^(\w+(-(?=\w))?\w*)@\w+\.(\w+(-(?=\w))?\w+)$/;
