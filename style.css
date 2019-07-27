@@ -33,15 +33,14 @@ html {
 
 .great-house-logo-panel {
   flex: 1;
-
-  align-self: center;
+  /*align-self: center;*/
   background: url("img/darknoise.png") repeat round 100%;
   /*background: url("img/") no-repeat 50% 50%;*/
   background-size: cover;
   width: 50vw;
   height: 100vh;
-  display: flex;
-  align-items: center;
+    display: flex;
+    align-items: center;
 
 }
 

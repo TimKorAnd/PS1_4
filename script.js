@@ -8,7 +8,8 @@ const $houseSlider = $('#houses-slider').slick({
 });
 const $houseSelect = $('#selecthouse').select2({
     placeholder: 'Select House',
-    dropdownAutoWidth: true
+    dropdownAutoWidth: true,
+    // dropdownCssClass: '.nav-panel__select-house-option'
 });
     eventsLoader($houseSelect, $houseSlider);
 })
