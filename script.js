@@ -1,15 +1,16 @@
 'use strict'
 $(() =>{
-eventsLoader();
-$('#houses-slider').slick({
+
+const $houseSlider = $('#houses-slider').slick({
     arrows: true,
     dots: true,
     variableWidth: true
 });
-$('#selecthouse').select2({
+const $houseSelect = $('#selecthouse').select2({
     placeholder: 'Select House',
     dropdownAutoWidth: true
 });
+    eventsLoader($houseSelect, $houseSlider);
 })
 /* CONSTANTS */
 
@@ -93,7 +94,7 @@ function changeSubmitedForm(submitedForm, nextForm) {
     nextForm.style.display = 'block';
 }
 
-function eventsLoader(){
+function eventsLoader($houseSelect, $houseSlider){
     /*get form1 DOM elems */
     let emailInput = new InputField('user-email', EMAIL_VALID_REGEXP, 'blur','input');
     let passwordInput = new InputField('user-password', PASSWORD_VALID_REGEX, 'blur', 'input',true);
@@ -101,6 +102,14 @@ function eventsLoader(){
     let usernameInput = new InputField('username', USERNAME_VALID_REGEX, 'blur', 'input');
     let userWishesTextArea = new InputField('user-wishes', USERWISHES_VALID_REGEX, 'blur', 'input');
     let selectHouse = new InputField('selecthouse', SELECTHOUSE_VALID_REGEX, 'blur', 'input');
+    $houseSelect.on('select2:select',(e) =>{
+        console.log(e.params.data.id);
+        $houseSlider.slick('slickGoTo',e.params.data.id);
+
+    });
+    $houseSlider.on('afterChange',() =>  {$houseSelect.val($houseSlider.slick('slickCurrentSlide'));
+    $houseSelect.trigger('change.select2');
+    });
 
     const btnForm1 = document.getElementById('form-1__submit-button');
     const btnForm2 = document.getElementById('form-2__submit-button');
