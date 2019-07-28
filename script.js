@@ -9,9 +9,10 @@ const $houseSlider = $('#houses-slider').slick({
 });
 const $houseSelect = $('#selecthouse').select2({
     placeholder: 'Select House',
-    dropdownAutoWidth: true,
-    // dropdownCssClass: '.nav-panel__select-house-option'
+    dropdownAutoWidth: true
+
 });
+
     eventsLoader($houseSelect, $houseSlider);
 })
 /* CONSTANTS */

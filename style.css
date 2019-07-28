@@ -180,11 +180,39 @@ select:-webkit-autofill:focus {
   -webkit-appearance: none;
   -moz-appearance: none;
   cursor: pointer;
+  outline: none !important;
+}
+
+.select2-container--default .select2-selection--single .select2-selection__rendered {
+  /*background-color: #202020 !important;*/
+  background: url("./img/darknoise.png") no-repeat 50% 50% !important;
+  color: #fef8eb !important;
+}
+
+.select2-container--default .select2-results__option--highlighted[aria-selected] {
+  background-color: #202020 !important;
+  color: #fef8eb !important;
+  outline: none !important;
+}
+.select2-container--default .select2-selection--single {
+  background-color: #343eff;
+  border: none !important;
+  outline: none !important;
 }
 
 .nav-panel__select-house-option {
   background-color: #202020;
   color: #fef8eb;
+  outline: none !important;
+
+}
+
+#user-wishes-label {
+  margin-top: 3vh;
+}
+
+#great-house-label {
+  margin-bottom: 1.5vh;
 }
 
 .nav-panel__wishes {

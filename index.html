@@ -69,7 +69,7 @@
       <input class="nav-panel__input block-element" type="text" name="username" id="username"
              placeholder="arya">
       
-      <label  class="input__label block-element" for="selecthouse">Your Great House</label>
+      <label  class="input__label block-element" id="great-house-label" for="selecthouse">Your Great House</label>
       <select class="nav-panel__select-house nav-panel__input block-element" name="selecthouse" id="selecthouse" size="1">
 
 <!--        <option class="nav-panel__select-house-option" value="" selected disabled>Select House</option>-->
@@ -80,14 +80,14 @@
         <option class="nav-panel__select-house-option" value="11">House Tyrell</option>
         <option class="nav-panel__select-house-option" value="6">House Martell</option>
         <option class="nav-panel__select-house-option" value="4">House Greyjoy</option>
-        <option class="nav-panel__select-house-option" value="0">House Arryn</option>
+        <option class="nav-panel__select-house-option" value="0" selected="selected">House Arryn</option>
         <option class="nav-panel__select-house-option" value="10">House Tully</option>
         <option class="nav-panel__select-house-option" value="2">House Bolton</option>
         <option class="nav-panel__select-house-option" value="3">House Frey</option>
         <option class="nav-panel__select-house-option" value="7">The Night’s Watch</option>
       </select>
       
-      <label  class="input__label block-element" for="user-wishes">Your preferences, hobbies, wishes, etc.</label>
+      <label  class="input__label block-element" id="user-wishes-label" for="user-wishes">Your preferences, hobbies, wishes, etc.</label>
       <textarea class="nav-panel__wishes nav-panel__input block-element" name="userwishes" id="user-wishes"
                 placeholder="I have a long TOKILL list.."></textarea>
       <input type="submit" class="nav-panel__submit-button block-element" id="form-2__submit-button" value="Save">
