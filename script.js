@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-$(() => {
-    window.onload = () => {eventsLoader()};
-    /* CONSTANTS */
-=======
+
 'use strict'
 $(() =>{
 
@@ -19,7 +15,6 @@ const $houseSelect = $('#selecthouse').select2({
     eventsLoader($houseSelect, $houseSlider);
 })
 /* CONSTANTS */
->>>>>>> 4e722e52827327d0d6581d83e5232ebb8e429f00
 
     const EMAIL_VALID_REGEXP = /^(\w+(-(?=\w))?\w*)@\w+\.(\w+(-(?=\w))?\w+)$/;
     //const PASSWORD_VALID_REGEX = /^(\w|\W){8,}$/;
@@ -101,16 +96,7 @@ const $houseSelect = $('#selecthouse').select2({
         nextForm.style.display = 'block';
     }
 
-<<<<<<< HEAD
-    function eventsLoader(){
-        /*get form1 DOM elems */
-        let emailInput = new InputField('user-email', EMAIL_VALID_REGEXP, 'blur','input');
-        let passwordInput = new InputField('user-password', PASSWORD_VALID_REGEX, 'blur', 'input',true);
-        /*get form2 DOM elems */
-        let usernameInput = new InputField('username', USERNAME_VALID_REGEX, 'blur', 'input');
-        let userWishesTextArea = new InputField('user-wishes', USERWISHES_VALID_REGEX, 'blur', 'input');
-        //let selectHouse = new InputField('selecthouse', SELECTHOUSE_VALID_REGEX, 'blur', 'input');
-=======
+
 function eventsLoader($houseSelect, $houseSlider){
     /*get form1 DOM elems */
     let emailInput = new InputField('user-email', EMAIL_VALID_REGEXP, 'blur','input');
@@ -127,7 +113,7 @@ function eventsLoader($houseSelect, $houseSlider){
     $houseSlider.on('afterChange',() =>  {$houseSelect.val($houseSlider.slick('slickCurrentSlide'));
     $houseSelect.trigger('change.select2');
     });
->>>>>>> 4e722e52827327d0d6581d83e5232ebb8e429f00
+
 
         const btnForm1 = document.getElementById('form-1__submit-button');
         const btnForm2 = document.getElementById('form-2__submit-button');
@@ -141,4 +127,3 @@ function eventsLoader($houseSelect, $houseSlider){
         form2.addEventListener('submit',(event) => submitHandler(event, btnForm2,
             [usernameInput, userWishesTextArea/*, selectHouse*/], () => changeSubmitedForm(form2,form3)));
     }
-})
