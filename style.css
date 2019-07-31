@@ -149,7 +149,7 @@ select:-webkit-autofill:focus {
 .nav-panel__checkbox:checked + .nav-panel__label-checkbox:after {
   text-align: center;
   font-size: 1.2em;
-  content: '\2718';
+  content: '\2714';
 }
 /*end checkbox styling*/
 
@@ -183,27 +183,38 @@ select:-webkit-autofill:focus {
   outline: none !important;
 }
 
-.select2-container--default .select2-selection--single .select2-selection__rendered {
+.select2-container--default .select2-selection--single .select2-selection__rendered,
+.select2-results__option{
   /*background-color: #202020 !important;*/
   background: url("./img/darknoise.png") no-repeat 50% 50% !important;
   color: #fef8eb !important;
+  font-family: "Open Sans", sans-serif !important;
+  font-size: 1em !important;
 }
 
-.select2-container--default .select2-results__option--highlighted[aria-selected] {
+.select2-container--default /*.select2-results__option--highlighted[aria-selected]*/ {
   background-color: #202020 !important;
   color: #fef8eb !important;
   outline: none !important;
 }
+
+.select2-results__option--highlighted[aria-selected], .select2-search--dropdown/*,*/
+/*.select2-search*/ {
+  background: #c19a49 url("") !important;
+  color: black !important;
+}
+
 .select2-container--default .select2-selection--single {
-  background-color: #343eff;
   border: none !important;
   outline: none !important;
 }
 
+
+
 .nav-panel__select-house-option {
   background-color: #202020;
   color: #fef8eb;
-  outline: none !important;
+  outline: none !important;git
 
 }
 
