@@ -9,6 +9,12 @@
 html {
   /*sans scroll*/
   overflow: hidden;
+  height: 100%;
+  font-size: 1vw;
+}
+
+body {
+  height: 100%;
 }
 
 * {
@@ -21,6 +27,11 @@ html {
   display: flex;
   /*align-items: baseline;*/
   /*justify-content: center;*/
+
+
+  height: 100%;
+  min-width: 100%;
+
 }
 .houses-slider {
   width: 100%;
@@ -28,7 +39,7 @@ html {
 }
 
 #houses-slider img {
-  width: 85%;
+  width: 50vw;
 }
 
 .great-house-logo-panel {
@@ -189,7 +200,7 @@ select:-webkit-autofill:focus {
   background: url("./img/darknoise.png") no-repeat 50% 50% !important;
   color: #fef8eb !important;
   font-family: "Open Sans", sans-serif !important;
-  font-size: 1em !important;
+  font-size: 1rem !important;
 }
 
 .select2-container--default /*.select2-results__option--highlighted[aria-selected]*/ {
@@ -200,7 +211,7 @@ select:-webkit-autofill:focus {
 
 .select2-results__option--highlighted[aria-selected], .select2-search--dropdown/*,*/
 /*.select2-search*/ {
-  background: #c19a49 url("") !important;
+  background: #c19a49 !important;
   color: black !important;
 }
 
@@ -214,7 +225,7 @@ select:-webkit-autofill:focus {
 .nav-panel__select-house-option {
   background-color: #202020;
   color: #fef8eb;
-  outline: none !important;git
+  outline: none !important;
 
 }
 
@@ -249,5 +260,6 @@ input:focus::placeholder {
 .hidden {
   display: none ;
 }
+
 
 
