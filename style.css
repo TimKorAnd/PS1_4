@@ -89,18 +89,22 @@ body {
 }
 
 .nav-panel__input {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
   color: #fef8eb;
   background-color: transparent;
   width: 25vw;
   height: 3rem;
   font-family: "Open Sans", sans-serif;
-  font-size: 1em;
+  font-size: 1rem;
   border: none;
   outline: none; /* delete some magic border around input fields in focus */
   border-bottom: 0.2rem solid #d3bb89;
   margin-bottom: 1rem;
   margin-top: 1rem;
   padding: 0;
+  min-height: 10%;
 }
 
 .input--invalid {

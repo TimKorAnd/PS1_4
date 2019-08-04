@@ -16,7 +16,8 @@ $(() => {
     createHousesOptionsInSelect($houseSelect);
     /*select init*/
     $houseSelect.select2({
-        placeholder: 'Select House',
+        placeholder: 'Select House'
+        /*minimumResultsForSearch: Infinity*/
     });
 
     eventsLoader($houseSelect, $houseSlider);
@@ -25,7 +26,7 @@ $(() => {
 
 const EMAIL_VALID_REGEXP = /^(\w+(-(?=\w))?\w*)@\w+\.(\w+(-(?=\w))?\w+)$/;
 //const PASSWORD_VALID_REGEX = /^(\w|\W){8,}$/;
-const PASSWORD_VALID_REGEX = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{8,}$/;
+const PASSWORD_VALID_REGEX = /^(?=.*\d)(?=.*[a-zа-я])(?=.*[A-ZА-Я])[0-9a-zA-Zа-яА-Я]{8,}$/;
 const USERNAME_VALID_REGEX = /^[\d\w]+$/;
 const USERWISHES_VALID_REGEX = /^.+$/;
 const SELECTHOUSE_VALID_REGEX = /.+/;
