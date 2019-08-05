@@ -89,9 +89,6 @@ body {
 }
 
 .nav-panel__input {
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
   color: #fef8eb;
   background-color: transparent;
   width: 25vw;
