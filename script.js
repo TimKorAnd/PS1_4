@@ -7,8 +7,8 @@ $(() => {
     /*slider init*/
     $('#houses-slider').slick({
         arrows: true,
-        dots: true,
-        variableWidth: true
+        dots: true/*,
+        variableWidth: true*/
     });
 
     const $houseSelect = $('#selecthouse');

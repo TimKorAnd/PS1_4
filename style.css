@@ -208,6 +208,7 @@ select:-webkit-autofill:focus {
   background-color: #202020 !important;
   color: #fef8eb !important;
   outline: none !important;
+  border-bottom: 0.2rem solid #d3bb89 !important;
 }
 
 .select2-results__option--highlighted[aria-selected], .select2-search--dropdown/*,*/
