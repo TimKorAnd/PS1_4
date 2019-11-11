@@ -2,7 +2,7 @@
 
 @font-face {
   font-family: Game_of_Thrones;
-  src: url(fonts/Game_of_Thrones.ttf);
+  src: url(../fonts/Game_of_Thrones.ttf);
 }
 
 
@@ -45,7 +45,7 @@ body {
 .great-house-logo-panel {
   flex: 1;
   /*align-self: center;*/
-  background: url("img/darknoise.png") repeat round 100%;
+  background: url("../img/darknoise.png") repeat round 100%;
   /*background: url("img/") no-repeat 50% 50%;*/
   background-size: cover;
   width: 50vw;
@@ -57,7 +57,7 @@ body {
 
 .nav-panel {
   flex: 1;
-  background: url("img/darknoise.png") repeat round 100%;
+  background: url("../img/darknoise.png") repeat round 100%;
   background-size: cover;
   width: 50vw;
   height: 100vh;
@@ -198,7 +198,7 @@ select:-webkit-autofill:focus {
 .select2-container--default .select2-selection--single .select2-selection__rendered,
 .select2-results__option{
   /*background-color: #202020 !important;*/
-  background: url("./img/darknoise.png") no-repeat 50% 50% !important;
+  background: url("../img/darknoise.png") no-repeat 50% 50% !important;
   color: #fef8eb !important;
   font-family: "Open Sans", sans-serif !important;
   font-size: 1rem !important;
