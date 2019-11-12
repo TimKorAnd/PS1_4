@@ -7,6 +7,7 @@
 <!--there are elems will created from js createHousesElemsInSlider($houseSlider);-->
 
   <section class="nav-panel">
+    //<?php if(isset(__SESSION[''])) ?>
     <?php include_once ('./html/reg-form-1.php') ?>
 
     <?php include_once ('./html/reg-form-2.php') ?>
@@ -17,6 +18,3 @@
 <?php include_once('./html/footer.php')?>
 </body>
 </html>
-
-
-НОУТ НУЖНО ЛОЧИТЬ!!!
