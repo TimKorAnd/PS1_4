@@ -115,7 +115,7 @@ function createHousesOptionsInSelect($houseSelect) {
 
 /*submit handler - form submited only if specified inputs is valid*/
 function submitHandler(event, btnSubmit, inputElems, submitFunc) {
-    event.preventDefault();
+    //event.preventDefault();
     if (inputElems.every((currInputElem) => {
         currInputElem.viewValidation();
         return currInputElem.isValid();
