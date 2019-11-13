@@ -9,6 +9,6 @@ return [
 
     ],
     'files' => [
-        'resultsFileJSON' => '../src/voteresults.json',
+        '' => '',
     ]
 ];

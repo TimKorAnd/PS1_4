@@ -11,14 +11,14 @@ $(() => {
         variableWidth: true*/
     });
 
-    const $houseSelect = $('#selecthouse');
-    /*create DOM elems from Houses for select*/
+    /*const $houseSelect = $('#selecthouse');
+    /!*create DOM elems from Houses for select*!/
     createHousesOptionsInSelect($houseSelect);
-    /*select init*/
+    /!*select init*!/
     $houseSelect.select2({
         placeholder: 'Select House'
-        /*minimumResultsForSearch: Infinity*/
-    });
+        /!*minimumResultsForSearch: Infinity*!/
+    });*/
 
     eventsLoader($houseSelect, $houseSlider);
 })
@@ -134,10 +134,10 @@ function eventsLoader($houseSelect, $houseSlider) {
     /*get form1 DOM elems */
     let emailInput = new InputField('user-email', EMAIL_VALID_REGEXP, 'blur', 'input');
     let passwordInput = new InputField('user-password', PASSWORD_VALID_REGEX, 'blur', 'input', true);
-    /*get form2 DOM elems */
+    /*/!*get form2 DOM elems *!/
     let usernameInput = new InputField('username', USERNAME_VALID_REGEX, 'blur', 'input');
     let userWishesTextArea = new InputField('user-wishes', USERWISHES_VALID_REGEX, 'blur', 'input');
-    let selectHouse = new InputField('selecthouse', SELECTHOUSE_VALID_REGEX, 'blur', 'input');
+    let selectHouse = new InputField('selecthouse', SELECTHOUSE_VALID_REGEX, 'blur', 'input');*/
     $houseSelect.on('select2:select', (e) => {
         console.log(e.params.data.id);
         $houseSlider.slick('slickGoTo', e.params.data.id);
@@ -150,14 +150,14 @@ function eventsLoader($houseSelect, $houseSlider) {
 
 
     const btnForm1 = document.getElementById('form-1__submit-button');
-    const btnForm2 = document.getElementById('form-2__submit-button');
+    /*const btnForm2 = document.getElementById('form-2__submit-button');*/
 
     const form1 = document.getElementById('reg-form-1');
-    const form2 = document.getElementById('reg-form-2');
+    /*const form2 = document.getElementById('reg-form-2');*/
     const form3 = document.getElementById('reg-form-3');
 
     form1.addEventListener('submit', (event) => submitHandler(event, btnForm1,
         [emailInput, passwordInput], () => changeSubmitedForm(form1, form2)));
-    form2.addEventListener('submit', (event) => submitHandler(event, btnForm2,
-        [usernameInput, userWishesTextArea/*, selectHouse*/], () => changeSubmitedForm(form2, form3)));
+    /*form2.addEventListener('submit', (event) => submitHandler(event, btnForm2,
+        [usernameInput, userWishesTextArea/!*, selectHouse*!/], () => changeSubmitedForm(form2, form3)));*/
 }

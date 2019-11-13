@@ -1,5 +1,5 @@
 <section class="nav-panel">
-<form class="nav-panel__form hidden" id="reg-form-2" action="" name="form-2" method="post"
+<form class="nav-panel__form" id="reg-form-2" action="" name="form-2" method="post"
       action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
     <p class="nav-panel__head-title block-element">GAME&nbsp;OF&nbsp;THRONES</p>
     <p class="form-2__join-message block-element">You have successfully joined the game.
