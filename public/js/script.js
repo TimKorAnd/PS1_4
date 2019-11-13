@@ -1,15 +1,14 @@
 'use strict'
-
-$(() => {
+/*$(() => {
     const $houseSlider = $('#houses-slider');
-    /*create DOM elems in slider*/
+    /!*create DOM elems in slider*!/
     createHousesElemsInSlider($houseSlider);
-    /*slider init*/
+    /!*slider init*!/
     $('#houses-slider').slick({
         arrows: true,
-        dots: true/*,
-        variableWidth: true*/
-    });
+        dots: true/!*,
+        variableWidth: true*!/
+    });*/
 
     /*const $houseSelect = $('#selecthouse');
     /!*create DOM elems from Houses for select*!/
@@ -20,8 +19,8 @@ $(() => {
         /!*minimumResultsForSearch: Infinity*!/
     });*/
 
-    eventsLoader($houseSelect, $houseSlider);
-})
+//     eventsLoader($houseSelect, $houseSlider);
+// })
 /* CONSTANTS */
 
 const EMAIL_VALID_REGEXP = /^(\w+(-(?=\w))?\w*)@\w+\.(\w+(-(?=\w))?\w+)$/;
@@ -97,13 +96,14 @@ class InputField {
     }
 }
 
-function createHousesElemsInSlider($houseSlider) {
+/*function createHousesElemsInSlider($houseSlider) {
     HOUSES.forEach((houseName) => {
         houseName = houseName.toLowerCase();
         $houseSlider.append(`<div><img src="${IMG_PATH}${houseName}${IMG_TYPE}"></div>`);
     })
-}
+}*/
 
+/*
 function createHousesOptionsInSelect($houseSelect) {
     HOUSES.map((houseName, index) => {
         return new Option('House ' + houseName, index + '', index === 0, false);
@@ -112,6 +112,7 @@ function createHousesOptionsInSelect($houseSelect) {
         $houseSelect.append(option);
     });
 }
+*/
 
 /*submit handler - form submited only if specified inputs is valid*/
 function submitHandler(event, btnSubmit, inputElems, submitFunc) {
@@ -138,15 +139,17 @@ function eventsLoader($houseSelect, $houseSlider) {
     let usernameInput = new InputField('username', USERNAME_VALID_REGEX, 'blur', 'input');
     let userWishesTextArea = new InputField('user-wishes', USERWISHES_VALID_REGEX, 'blur', 'input');
     let selectHouse = new InputField('selecthouse', SELECTHOUSE_VALID_REGEX, 'blur', 'input');*/
-    $houseSelect.on('select2:select', (e) => {
-        console.log(e.params.data.id);
-        $houseSlider.slick('slickGoTo', e.params.data.id);
 
-    });
-    $houseSlider.on('afterChange', () => {
-        $houseSelect.val($houseSlider.slick('slickCurrentSlide'));
-        $houseSelect.trigger('change.select2');
-    });
+
+    // $houseSelect.on('select2:select', (e) => {
+    //     console.log(e.params.data.id);
+    //     $houseSlider.slick('slickGoTo', e.params.data.id);
+    //
+    // });
+    // $houseSlider.on('afterChange', () => {
+    //     $houseSelect.val($houseSlider.slick('slickCurrentSlide'));
+    //     $houseSelect.trigger('change.select2');
+    // });
 
 
     const btnForm1 = document.getElementById('form-1__submit-button');

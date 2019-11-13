@@ -3,6 +3,6 @@
 <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.8/js/select2.min.js"></script>
 <script src="js/script.js"></script>
-<?php if ($isDisplayedForm2) {echo '<script src="js/script.js"></script>';} ?>
+<script src="<?php echo $jsScriptName;?>"></script>
 </body>
 </html>

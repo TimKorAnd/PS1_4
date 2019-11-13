@@ -18,13 +18,15 @@
 
     include_once ('./html/great-house-logo-panel.html');
 
-    $isDisplayedForm2 = false;
+    $jsScriptName = '';
    if (!$user->isSignedIn()) {
+       $jsScriptName = './js/scriptForm1.js';
        include_once('./html/reg-form-1.php');
    }
    else {
+       $jsScriptName = './js/scriptForm2.js';
        include_once('./html/reg-form-2.php');
-       $isDisplayedForm2 = true;
+
    }
 
    /*include_once ('./html/reg-form-2.php') */
