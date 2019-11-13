@@ -1,3 +1,4 @@
+<section class="nav-panel">
 <form class="nav-panel__form hidden" id="reg-form-3" method="post"
       action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
     <div>
@@ -5,3 +6,4 @@
         <input type="submit" class="nav-panel__submit-button block-element" value="Save">
     </div>
 </form>
+</section>

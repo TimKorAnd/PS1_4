@@ -1,3 +1,4 @@
+<section class="nav-panel">
 <form class="nav-panel__form" id ="reg-form-1" name="form_1" method="post"
       action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
     <p class="nav-panel__head-title block-element">GAME&nbsp;OF&nbsp;THRONES</p>
@@ -26,3 +27,4 @@
     </div>
     <input type="submit" class="nav-panel__submit-button block-element" id="form-1__submit-button" value="Sign up">
 </form>
+</section>

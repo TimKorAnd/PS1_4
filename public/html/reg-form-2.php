@@ -1,3 +1,4 @@
+<section class="nav-panel">
 <form class="nav-panel__form hidden" id="reg-form-2" action="" name="form-2" method="post"
       action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
     <p class="nav-panel__head-title block-element">GAME&nbsp;OF&nbsp;THRONES</p>
@@ -20,3 +21,4 @@
 
 
 </form>
+</section>
