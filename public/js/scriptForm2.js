@@ -1,13 +1,7 @@
 $(() => {
     const $houseSlider = $('#houses-slider');
     const $houseSelect = $('#selecthouse');
-    createHousesElemsInSlider($houseSlider);
-    /*slider init*/
-    $houseSlider.slick({
-        arrows: true,
-        dots: true/*,
-        variableWidth: true*/
-    });
+
     /*create DOM elems from Houses for select*/
     createHousesOptionsInSelect($houseSelect);
     /*select init*/
@@ -18,13 +12,6 @@ $(() => {
 
     eventsLoaderForm2($houseSelect, $houseSlider);
 })
-function createHousesElemsInSlider($houseSlider) {
-    HOUSES.forEach((houseName) => {
-        houseName = houseName.toLowerCase();
-        $houseSlider.append(`<div><img src="${IMG_PATH}${houseName}${IMG_TYPE}"></div>`);
-    })
-}
-
 
 function eventsLoaderForm2($houseSelect, $houseSlider) {
     /*get form2 DOM elems */

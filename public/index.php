@@ -18,7 +18,7 @@
 
     include_once ('./html/great-house-logo-panel.html');
 
-    $jsScriptName = '';
+    $jsScriptName = '';//TODO put in config, read in class, change dependency of object state
    if (!$user->isSignedIn()) {
        $jsScriptName = './js/scriptForm1.js';
        include_once('./html/reg-form-1.php');

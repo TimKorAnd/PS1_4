@@ -1,26 +1,15 @@
 'use strict'
-/*$(() => {
+$(() => {
     const $houseSlider = $('#houses-slider');
     /!*create DOM elems in slider*!/
     createHousesElemsInSlider($houseSlider);
     /!*slider init*!/
-    $('#houses-slider').slick({
+    $houseSlider.slick({
         arrows: true,
-        dots: true/!*,
-        variableWidth: true*!/
-    });*/
+        dots: true
+    });
+})
 
-    /*const $houseSelect = $('#selecthouse');
-    /!*create DOM elems from Houses for select*!/
-    createHousesOptionsInSelect($houseSelect);
-    /!*select init*!/
-    $houseSelect.select2({
-        placeholder: 'Select House'
-        /!*minimumResultsForSearch: Infinity*!/
-    });*/
-
-//     eventsLoader($houseSelect, $houseSlider);
-// })
 /* CONSTANTS */
 
 const EMAIL_VALID_REGEXP = /^(\w+(-(?=\w))?\w*)@\w+\.(\w+(-(?=\w))?\w+)$/;
@@ -96,23 +85,13 @@ class InputField {
     }
 }
 
-/*function createHousesElemsInSlider($houseSlider) {
+function createHousesElemsInSlider($houseSlider) {
     HOUSES.forEach((houseName) => {
         houseName = houseName.toLowerCase();
         $houseSlider.append(`<div><img src="${IMG_PATH}${houseName}${IMG_TYPE}"></div>`);
     })
-}*/
-
-/*
-function createHousesOptionsInSelect($houseSelect) {
-    HOUSES.map((houseName, index) => {
-        return new Option('House ' + houseName, index + '', index === 0, false);
-    }).forEach((option) => {
-        option.className = 'nav-panel__select-house-option';
-        $houseSelect.append(option);
-    });
 }
-*/
+
 
 /*submit handler - form submited only if specified inputs is valid*/
 function submitHandler(event, btnSubmit, inputElems, submitFunc) {
@@ -123,44 +102,4 @@ function submitHandler(event, btnSubmit, inputElems, submitFunc) {
     })) {
         submitFunc();
     }*/
-}
-
-function changeSubmitedForm(submitedForm, nextForm) {
-    submitedForm.style.display = 'none';
-    nextForm.style.display = 'block';
-}
-
-
-function eventsLoader($houseSelect, $houseSlider) {
-    /*get form1 DOM elems */
-    let emailInput = new InputField('user-email', EMAIL_VALID_REGEXP, 'blur', 'input');
-    let passwordInput = new InputField('user-password', PASSWORD_VALID_REGEX, 'blur', 'input', true);
-    /*/!*get form2 DOM elems *!/
-    let usernameInput = new InputField('username', USERNAME_VALID_REGEX, 'blur', 'input');
-    let userWishesTextArea = new InputField('user-wishes', USERWISHES_VALID_REGEX, 'blur', 'input');
-    let selectHouse = new InputField('selecthouse', SELECTHOUSE_VALID_REGEX, 'blur', 'input');*/
-
-
-    // $houseSelect.on('select2:select', (e) => {
-    //     console.log(e.params.data.id);
-    //     $houseSlider.slick('slickGoTo', e.params.data.id);
-    //
-    // });
-    // $houseSlider.on('afterChange', () => {
-    //     $houseSelect.val($houseSlider.slick('slickCurrentSlide'));
-    //     $houseSelect.trigger('change.select2');
-    // });
-
-
-    const btnForm1 = document.getElementById('form-1__submit-button');
-    /*const btnForm2 = document.getElementById('form-2__submit-button');*/
-
-    const form1 = document.getElementById('reg-form-1');
-    /*const form2 = document.getElementById('reg-form-2');*/
-    const form3 = document.getElementById('reg-form-3');
-
-    form1.addEventListener('submit', (event) => submitHandler(event, btnForm1,
-        [emailInput, passwordInput], () => changeSubmitedForm(form1, form2)));
-    /*form2.addEventListener('submit', (event) => submitHandler(event, btnForm2,
-        [usernameInput, userWishesTextArea/!*, selectHouse*!/], () => changeSubmitedForm(form2, form3)));*/
 }
