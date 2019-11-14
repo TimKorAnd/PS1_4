@@ -1,12 +1,15 @@
 <?php
 return [
     'reg-form' => [
-        'form-1-fields' => ['email' => FILTER_VALIDATE_EMAIL,'psw'],
         'form-2-fields' => ['username','psw'],
         'pagesData' => [
             [
                 'uri' => './html/reg-form-1.php',
-                'scriptName' => './js/scriptForm1.js'
+                'scriptName' => './js/scriptForm1.js',
+                'formFields' => [
+                    'email' => function($email){return(filter_var($email,FILTER_VALIDATE_EMAIL));},
+                    'passHash' => function($pass){return hash('sha256',$pass);}
+                    ]
             ],
             [
                 'uri' => './html/reg-form-2.php',

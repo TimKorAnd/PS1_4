@@ -27,6 +27,7 @@ class Registrator
         $this->config = require_once '../config/config.php';
         $this->pageIndex = 0;
         $this->pagesData = $this->config['reg-form']['pagesData'];
+        //$this->formFields = $this->config['reg-form']['pagesData']['formFields'];
 
         $this->validator = new FormValidator();
 
@@ -57,13 +58,21 @@ class Registrator
 
     public function signUp($email, $pass){
         if ($this->isSignedIn) return; //TODO display: have been already signed in
-
-        if (!($this->validator->checkData($email, FILTER_VALIDATE_EMAIL) &
+        $test = true;
+        foreach ($this->pagesData[$this->pageIndex]['formFields'] as $fieldName => $testFunc){
+            $test = $test && call_user_func($testFunc,$$fieldName) ?: false;
+            if($test){
+                $this->$fieldName = $$fieldName;
+            }
+        }
+        //$this->passHash = $this->passHash ?? hash('sha256',$pass);
+        if (!$test) return;
+        /*if (!($this->validator->checkData($email, function($email){return(filter_var($email,FILTER_VALIDATE_EMAIL));}) &
           $this->validator->checkData($pass, '/^.{8,}$/' ))){
             return;
-        }
-        $this->email = $email;
-        $this->passHash = hash('sha256',$pass);
+        }*/
+        /*$this->email = $email;
+        $this->passHash = hash('sha256',$pass);*/
 
         SessionStore::storeinSession('user', $this);
         FileHandler::saveUser();// TODO check for existing json file about this user registration
