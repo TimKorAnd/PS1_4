@@ -7,6 +7,9 @@ class Registrator
     private $passHash;
     private $rememberMe;
     private $isSignedIn;
+    private $config;
+    private $pageIndex;
+    private $pagesData; //flow of stages pages uri
     private $validator;
 
     /**
@@ -17,16 +20,28 @@ class Registrator
      */
     public function __construct()
     {
-
         $this->email = '';
         $this->passHash = '';
         $this->rememberMe = false;
         $this->isSignedIn = false;
+        $this->config = require_once '../config/config.php';
+        $this->pageIndex = 0;
+        $this->pagesData = $this->config['reg-form']['pagesData'];
+
         $this->validator = new FormValidator();
 
         //SessionStore::storeinSession('user', $this);
     }
 
+    public function getCurrentPageData(){
+        return $this->pagesData[$this->pageIndex];
+    }
+
+    private function incPageIndex(){
+       if($this->pageIndex < count($this->pagesData)-1) {
+           $this->pageIndex++;
+       }
+    }
     /**
      * @param $dataName
      * @return string
@@ -52,8 +67,12 @@ class Registrator
 
         SessionStore::storeinSession('user', $this);
         FileHandler::saveUser();// TODO check for existing json file about this user registration
-
+        $this->incPageIndex();
         $this->isSignedIn = true;
+
+    }
+
+    public function addUserData(){
 
     }
 
