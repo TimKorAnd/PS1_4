@@ -8,7 +8,7 @@ return [
                 'scriptName' => './js/scriptForm1.js',
                 'formFields' => [
                     'email' => function($email){return(filter_var($email,FILTER_VALIDATE_EMAIL));},
-                    'passHash' => function($pass){return hash('sha256',$pass);}
+                    'pass' => function($pass){return true;}
                     ]
             ],
             [

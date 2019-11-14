@@ -62,7 +62,11 @@ class Registrator
         foreach ($this->pagesData[$this->pageIndex]['formFields'] as $fieldName => $testFunc){
             $test = $test && call_user_func($testFunc,$$fieldName) ?: false;
             if($test){
-                $this->$fieldName = $$fieldName;
+                if($fieldName === 'psw'){
+                    $this->passHash = hash('sha256',$pass);
+                } else {
+                    $this->$fieldName = $$fieldName;
+                }
             }
         }
         //$this->passHash = $this->passHash ?? hash('sha256',$pass);
