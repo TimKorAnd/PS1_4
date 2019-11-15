@@ -3,14 +3,15 @@
 
 class Registrator
 {
-    private $email;
-    private $passHash;
-    private $rememberMe;
-    private $isSignedIn;
+//    private $email;           object's fields accepting input parameters
+//    private $passHash;        will create from FORM's field in constructor
+
+        private $isSubmitted;    //array of boolean, means is submitted form with corresponding index
     private $config;
-    private $pageIndex;
+    private $formIndex;
     private $pagesData; //flow of stages pages uri
-    private $validator;
+    private $fieldsArrayForSerialization=[];
+    //private $validator;
 
     /**
      * Registrator constructor.
@@ -20,27 +21,45 @@ class Registrator
      */
     public function __construct()
     {
-        $this->email = '';
-        $this->passHash = '';
-        $this->rememberMe = false;
-        $this->isSignedIn = false;
+//        $this->email = '';            object's fields accepting input parameters
+//        $this->passHash = '';         will create from FORM's field in constructor
+//        $this->rememberMe = false;
         $this->config = require_once '../config/config.php';
-        $this->pageIndex = 0;
+        $this->formIndex = 0;           // index of current form
         $this->pagesData = $this->config['reg-form']['pagesData'];
-        //$this->formFields = $this->config['reg-form']['pagesData']['formFields'];
-
-        $this->validator = new FormValidator();
+        foreach($this->pagesData as $pageData) {
+            foreach($pageData['formFields'] as $fieldName => $testFunc ) {
+                $this->$fieldName = '';
+                $this->fieldsArrayForSerialization[] = $fieldName;
+            }
+            $this->isSubmitted[] = false;
+          }
+        $this->config = '';
+        unset($this->config);
+        //$this->validator = new FormValidator();
 
         //SessionStore::storeinSession('user', $this);
     }
 
-    public function getCurrentPageData(){
-        return $this->pagesData[$this->pageIndex];
+
+        public function __sleep()
+        {
+            return array_merge(['isSubmitted', 'formIndex'], $this->fieldsArrayForSerialization);
+        }
+
+        public function __wakeup()
+        {
+            $this->config = require_once '../config/config.php';
+            $this->pagesData = $this->config['reg-form']['pagesData'];
+        }
+
+        public function getCurrentPageData(){
+        return $this->pagesData[$this->formIndex];
     }
 
     private function incPageIndex(){
-       if($this->pageIndex < count($this->pagesData)-1) {
-           $this->pageIndex++;
+       if($this->formIndex < count($this->pagesData)-1) {
+           $this->formIndex++;
        }
     }
     /**
@@ -53,40 +72,33 @@ class Registrator
     }
 
     public function isSignedIn(): bool {
-        return $this->isSignedIn;
+        return $this->isSubmitted[0];
     }
 
-    public function signUp($email, $pass){
-        if ($this->isSignedIn) return; //TODO display: have been already signed in
+    public function sbmtForm(){
+        if ($this->isSubmitted[$this->formIndex]) return; //TODO display: have been already signed in
         $test = true;
-        foreach ($this->pagesData[$this->pageIndex]['formFields'] as $fieldName => $testFunc){
-            $test = $test && call_user_func($testFunc,$$fieldName) ?: false;
-            if($test){
+        foreach ($this->pagesData[$this->formIndex]['formFields'] as $fieldName => $testFunc){
+            $test = $test && call_user_func($testFunc,$_POST[$fieldName]) ?: false;
+            //if ($test)
+            if(call_user_func($testFunc,$_POST[$fieldName])){
                 if($fieldName === 'psw'){
-                    $this->passHash = hash('sha256',$pass);
+                    $this->$fieldName = hash('sha256',$_POST[$fieldName]);
                 } else {
-                    $this->$fieldName = $$fieldName;
+                    $this->$fieldName = $_POST[$fieldName];
                 }
             }
         }
-        //$this->passHash = $this->passHash ?? hash('sha256',$pass);
+
         if (!$test) return;
-        /*if (!($this->validator->checkData($email, function($email){return(filter_var($email,FILTER_VALIDATE_EMAIL));}) &
-          $this->validator->checkData($pass, '/^.{8,}$/' ))){
-            return;
-        }*/
-        /*$this->email = $email;
-        $this->passHash = hash('sha256',$pass);*/
 
         SessionStore::storeinSession('user', $this);
         FileHandler::saveUser();// TODO check for existing json file about this user registration
+
+        $this->isSubmitted[$this->formIndex] = true;
         $this->incPageIndex();
-        $this->isSignedIn = true;
 
     }
 
-    public function addUserData(){
-
-    }
 
 }

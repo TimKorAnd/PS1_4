@@ -21,8 +21,10 @@
     <span class="error"><?php echo '$pswErr';?></span>
 
     <div class="nav-panel__custom-checkbox">
+        <input type="hidden" class="nav-panel__checkbox block-element" name="remember-me"
+               value="0" id="remember-me-checkbox-hidden" >
         <input type="checkbox" class="nav-panel__checkbox block-element" name="remember-me"
-               value="Remember me" id="remember-me-checkbox" <?php if ($user->getData('rememberMe')){echo 'checked';}?>">
+               value="1" id="remember-me-checkbox" <?php if ($user->getData('remember-me')){echo 'checked';}?>>
         <label for="remember-me-checkbox" class="nav-panel__label-checkbox block-element">Remember me</label>
     </div>
     <input type="submit" class="nav-panel__submit-button block-element" id="form-1__submit-button" name="form-1__submit-button" value="Sign up">
