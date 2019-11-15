@@ -96,6 +96,7 @@ class Registrator
         if (!$this->isValidForm()) return;
 
         SessionStore::storeinSession('user', $this);
+
         FileHandler::saveUser($this);// TODO check for existing json file about this user registration
 
         $this->isSubmitted[$this->formIndex] = true;

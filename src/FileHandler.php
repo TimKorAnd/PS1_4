@@ -11,9 +11,15 @@ class FileHandler
         //self::$config = require_once '../config/config.php';
         self::$config = $user->getConfig();
         self::$pathAssets = self::$config['files']['assetsPath'];
-        $file = self::$pathAssets.$user->getData('email');
-        //$file = self::$pathAssets.'file.txt';
+
+        $file = self::makeValidFileNameFrom($user->getData('email'));
 
         file_put_contents($file, json_encode($user));
     }
+
+    public static function makeValidFileNameFrom($email): string{
+        return self::$pathAssets.str_replace(['@','.'], '',$email).'.json';
+    }
+
+
 }
