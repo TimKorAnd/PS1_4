@@ -91,22 +91,9 @@ class Registrator
          */
         public function sbmtForm(){
         //if ($this->isSubmitted[$this->formIndex]) return; //TODO display: have been already signed in
-        $test = true;
-        foreach ($this->pagesData[$this->formIndex]['formFields'] as $fieldName => $testFunc){
-            $test = $test && call_user_func($testFunc,$_POST[$fieldName]) ?: false;
-            //if ($test)
-            if(call_user_func($testFunc,$_POST[$fieldName])){
-                if($fieldName === 'psw'){
-                    $this->$fieldName = hash('sha256',$_POST[$fieldName]);
-                } else {
-                    $this->$fieldName = $_POST[$fieldName];
-                }
-            } else {
-                $this->errors[$fieldName] = $this->config['reg-form']['errors'][$fieldName];
-            }
-        }
+            //$test = $this->isValidForm();
 
-        if (!$test) return;
+        if (!$this->isValidForm()) return;
 
         SessionStore::storeinSession('user', $this);
         FileHandler::saveUser($this);// TODO check for existing json file about this user registration
@@ -116,5 +103,35 @@ class Registrator
 
     }
 
+        /**
+         * @return bool
+         */
+        public function isValidForm(): bool
+        {
+            $isValid = true;
+            foreach ($this->pagesData[$this->formIndex]['formFields'] as $fieldName => $testFunc) {
+                $isValid = $isValid && call_user_func($testFunc, $_POST[$fieldName]) ?: false;
+                //if ($test)
+                if (call_user_func($testFunc, $_POST[$fieldName])) {
+                    if ($fieldName === 'psw') {
+                        $this->$fieldName = hash('sha256', $_POST[$fieldName]);
+                    } else {
+                        $this->$fieldName = $_POST[$fieldName];
+                    }
+                } else {
+                    $this->setErrorMsg($fieldName);
+                }
+            }
+            return $isValid;
+        }
 
-}
+        /**
+         * @param $fieldName
+         */
+        public function setErrorMsg($fieldName): void
+        {
+            $this->errors[$fieldName] = $this->config['reg-form']['errors'][$fieldName];
+        }
+
+
+    }
