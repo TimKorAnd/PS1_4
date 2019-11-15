@@ -43,18 +43,18 @@ class Registrator
     }
 
 
-        public function __sleep()
-        {
-            return array_merge(['isSubmitted', 'formIndex', 'fieldsArrayForSerialization'], $this->fieldsArrayForSerialization);
-        }
+    public function __sleep()
+    {
+        return array_merge(['isSubmitted', 'formIndex', 'fieldsArrayForSerialization'], $this->fieldsArrayForSerialization);
+    }
 
-        public function __wakeup()
-        {
-            $this->config = require_once '../config/config.php';
-            $this->pagesData = $this->config['reg-form']['pagesData'];
-        }
+    public function __wakeup()
+    {
+        $this->config = require_once '../config/config.php';
+        $this->pagesData = $this->config['reg-form']['pagesData'];
+    }
 
-        public function getCurrentPageData(){
+    public function getCurrentPageData(){
         return $this->pagesData[$this->formIndex];
     }
 
@@ -75,6 +75,11 @@ class Registrator
     public function getError($fieldName): string
     {
         return $this->errors[$fieldName] ?? '';
+    }
+
+    public function getConfig(): array
+    {
+        return $this->config;
     }
 
     public function isSignedIn(): bool {
@@ -104,7 +109,7 @@ class Registrator
         if (!$test) return;
 
         SessionStore::storeinSession('user', $this);
-        FileHandler::saveUser();// TODO check for existing json file about this user registration
+        FileHandler::saveUser($this);// TODO check for existing json file about this user registration
 
         $this->isSubmitted[$this->formIndex] = true;
         $this->incPageIndex();
