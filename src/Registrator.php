@@ -6,12 +6,12 @@ class Registrator
 //    private $email;           object's fields accepting input parameters
 //    private $passHash;        will create from FORM's field in constructor
 
-        private $isSubmitted;    //array of boolean, means is submitted form with corresponding index
+    private $isSubmitted;    //array of boolean, means is submitted form with corresponding index
     private $config;
     private $formIndex;
     private $pagesData; //flow of stages pages uri
-    private $fieldsArrayForSerialization=[];
-    //private $validator;
+    private $fieldsArrayForSerialization=[]; //contains fields for serialization;
+    private $errors;
 
     /**
      * Registrator constructor.
@@ -26,6 +26,7 @@ class Registrator
 //        $this->rememberMe = false;
         $this->config = require_once '../config/config.php';
         $this->formIndex = 0;           // index of current form
+        $this->errors = [];
         $this->pagesData = $this->config['reg-form']['pagesData'];
         foreach($this->pagesData as $pageData) {
             foreach($pageData['formFields'] as $fieldName => $testFunc ) {
@@ -34,8 +35,8 @@ class Registrator
             }
             $this->isSubmitted[] = false;
           }
-        $this->config = '';
-        unset($this->config);
+       /* $this->config = '';
+        unset($this->config);*/
         //$this->validator = new FormValidator();
 
         //SessionStore::storeinSession('user', $this);
@@ -63,12 +64,17 @@ class Registrator
        }
     }
     /**
-     * @param $dataName
+     * @param $fieldName
      * @return string
      */
-    public function getData($dataName): string
+    public function getData($fieldName): string
     {
-        return $this->$dataName;
+        return $this->$fieldName;
+    }
+
+    public function getError($fieldName): string
+    {
+        return $this->errors[$fieldName] ?? '';
     }
 
     public function isSignedIn(): bool {
@@ -79,7 +85,7 @@ class Registrator
          * read fields from form & check is it valid,
          */
         public function sbmtForm(){
-        if ($this->isSubmitted[$this->formIndex]) return; //TODO display: have been already signed in
+        //if ($this->isSubmitted[$this->formIndex]) return; //TODO display: have been already signed in
         $test = true;
         foreach ($this->pagesData[$this->formIndex]['formFields'] as $fieldName => $testFunc){
             $test = $test && call_user_func($testFunc,$_POST[$fieldName]) ?: false;
@@ -90,6 +96,8 @@ class Registrator
                 } else {
                     $this->$fieldName = $_POST[$fieldName];
                 }
+            } else {
+                $this->errors[$fieldName] = $this->config['reg-form']['errors'][$fieldName];
             }
         }
 
