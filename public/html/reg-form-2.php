@@ -16,7 +16,7 @@
 
     <label  class="input__label block-element" id="user-wishes-label" for="user-wishes">Your preferences, hobbies, wishes, etc.</label>
     <textarea class="nav-panel__wishes nav-panel__input block-element" name="userwishes" id="user-wishes"
-              placeholder="I have a long TOKILL list.."></textarea>
+              placeholder="I have a long TOKILL list.."><?php echo $user->getData('email');?></textarea>
     <input type="submit" class="nav-panel__submit-button block-element" id="form-2__submit-button" value="Save">
 
 

@@ -44,7 +44,7 @@ class Registrator
 
         public function __sleep()
         {
-            return array_merge(['isSubmitted', 'formIndex'], $this->fieldsArrayForSerialization);
+            return array_merge(['isSubmitted', 'formIndex', 'fieldsArrayForSerialization'], $this->fieldsArrayForSerialization);
         }
 
         public function __wakeup()
@@ -75,7 +75,10 @@ class Registrator
         return $this->isSubmitted[0];
     }
 
-    public function sbmtForm(){
+        /**
+         * read fields from form & check is it valid,
+         */
+        public function sbmtForm(){
         if ($this->isSubmitted[$this->formIndex]) return; //TODO display: have been already signed in
         $test = true;
         foreach ($this->pagesData[$this->formIndex]['formFields'] as $fieldName => $testFunc){
