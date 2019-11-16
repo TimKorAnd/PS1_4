@@ -1,7 +1,9 @@
 <?php
 
 
-class Registrator
+    use http\Client\Curl\User;
+
+    class Registrator
 {
 //    private $email;           object's fields accepting input parameters
 //    private $passHash;        will create from FORM's field in constructor
@@ -37,7 +39,7 @@ class Registrator
           }
        /* $this->config = '';
         unset($this->config);*/
-        //$this->validator = new FormValidator();
+        //$this->validator = new UserValidator();
 
         //GOTSessionHandler::storeinSession('user', $this);
     }
@@ -95,9 +97,19 @@ class Registrator
 
         if (!$this->isValidForm()) return;
 
+        if ( $this->formIndex === 0 &&
+          FileHandler::isFileExistForEmail($this->email)){
+            if (!UserValidator::isPassValid($this)){
+                $this->psw = '';
+                $this->setErrorMsg('email', 'this email already registered');
+                $this->setErrorMsg('psw', 'access denied');
+                return;
+            }
+            UserValidator::getUserData($this);
+        }
         GOTSessionHandler::storeinSession('user', $this);
 
-        FileHandler::saveUser($this);// TODO check for existing json file about this user registration
+        FileHandler::saveUserToJSONFile($this);// TODO check for existing json file about this user registration
 
         $this->isSubmitted[$this->formIndex] = true;
         $this->incPageIndex();
@@ -128,10 +140,11 @@ class Registrator
 
         /**
          * @param $fieldName
+         * @param string $errMsg
          */
-        public function setErrorMsg($fieldName): void
+        public function setErrorMsg($fieldName, $errMsg =''): void
         {
-            $this->errors[$fieldName] = $this->config['reg-form']['errors'][$fieldName];
+            $this->errors[$fieldName] = $errMsg === '' ? $this->config['reg-form']['errors'][$fieldName] : $errMsg;
         }
 
 
