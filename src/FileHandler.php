@@ -8,7 +8,7 @@ class FileHandler
 
     public static function saveUser($user)
     {
-        //self::$config = require_once '../config/config.php';
+        //self::$config = require '../config/config.php';
         self::$config = $user->getConfig();
         self::$pathAssets = self::$config['files']['assetsPath'];
 
