@@ -15,7 +15,7 @@ class GOTFileHandler
     }
 
     public static function makeValidFileNameWPathFromEmail($email): string{
-        return self::pathAssets.str_replace(['@','.'], '',$email).'.json';
+        return strtolower(self::pathAssets.str_replace(['@','.'], '',$email).'.json');
     }
 
     public static function isFileExistForEmail($email): bool {

@@ -24,3 +24,11 @@
 
 </form>
 </section>
+<script>let sliderPositionIndex =<?php
+    if(!$user->getData('selecthouse')){
+        echo '0';
+    } else {
+        echo $user->getData('selecthouse');
+    }
+        ?>
+</script>

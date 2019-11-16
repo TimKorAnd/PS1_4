@@ -2,6 +2,7 @@ $(() => {
     const $houseSlider = $('#houses-slider');
     const $houseSelect = $('#selecthouse');
 
+
     /*create DOM elems from Houses for select*/
     createHousesOptionsInSelect($houseSelect);
     /*select init*/
@@ -11,6 +12,8 @@ $(() => {
     });
 
     eventsLoaderForm2($houseSelect, $houseSlider);
+    if(sliderPositionIndex)
+    $houseSlider.slick('slickGoTo', sliderPositionIndex);
 })
 
 function eventsLoaderForm2($houseSelect, $houseSlider) {
