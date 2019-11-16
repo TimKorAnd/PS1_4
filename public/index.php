@@ -3,7 +3,7 @@
     require_once '../src/Registrator.php';
     require_once '../src/UserValidator.php';
     require_once '../src/GOTSessionHandler.php';
-    require_once '../src/FileHandler.php';
+    require_once '../src/GOTFileHandler.php';
 
     session_start(['name'=>'sayMyName']);
 

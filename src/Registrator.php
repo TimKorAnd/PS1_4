@@ -98,7 +98,7 @@
         if (!$this->isValidForm()) return;
 
         if ( $this->formIndex === 0 &&
-          FileHandler::isFileExistForEmail($this->email)){
+          GOTFileHandler::isFileExistForEmail($this->email)){
             if (!UserValidator::isPassValid($this)){
                 $this->psw = '';
                 $this->setErrorMsg('email', 'this email already registered');
@@ -109,7 +109,7 @@
         }
         GOTSessionHandler::storeinSession('user', $this);
 
-        FileHandler::saveUserToJSONFile($this);// TODO check for existing json file about this user registration
+        GOTFileHandler::saveUserToJSONFile($this);// TODO check for existing json file about this user registration
 
         $this->isSubmitted[$this->formIndex] = true;
         $this->incPageIndex();

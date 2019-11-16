@@ -10,12 +10,12 @@ class UserValidator
 
     public static function isPassValid(Registrator $user)
     {
-        return FileHandler::getPassHashFromFileForEmail($user->email) === $user->psw;
+        return GOTFileHandler::getPassHashFromFileForEmail($user->email) === $user->psw;
     }
 
     public static function getUserData(Registrator &$user)
     {
-        $readObj = FileHandler::getUserDataFromFileForEmail($user->email);
+        $readObj = GOTFileHandler::getUserDataFromFileForEmail($user->email);
         foreach($readObj as $key => $value){
             $user->$key = $value;
         }

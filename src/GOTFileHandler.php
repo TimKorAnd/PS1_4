@@ -1,7 +1,7 @@
 <?php
 
 
-class FileHandler
+class GOTFileHandler
 {
     //private static $config;
     //private static $pathAssets;
