@@ -9,7 +9,7 @@
 
     $user = $_SESSION['user'] ?? new Registrator();
 
-    if($_SERVER['REQUEST_METHOD'] == 'POST') {
+    if($_SERVER['REQUEST_METHOD'] == 'POST' ) {
         $user->sbmtForm();
     }
 

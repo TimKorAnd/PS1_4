@@ -19,7 +19,14 @@ return [
                     'selecthouse' => function($selecthouse){return true;},
                     'userwishes' => function($userwishes){return preg_match('/^.+$/',$userwishes);},
               ]
-            ]
+            ],
+            [
+              'uri' => './html/reg-form-3.php',
+              'scriptName' => '',
+              'formFields' => [
+
+              ]
+            ],
         ],
         'errors' => [
             'email'=>'Enter real email, please',
