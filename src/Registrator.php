@@ -24,22 +24,22 @@ class Registrator
 //        $this->email = '';            object's fields accepting input parameters
 //        $this->passHash = '';         will create from FORM's field in constructor
 //        $this->rememberMe = false;
-        $this->config = require_once '../config/config.php';
+        $this->config = require '../config/config.php';
         $this->formIndex = 0;           // index of current form
         $this->errors = [];
         $this->pagesData = $this->config['reg-form']['pagesData'];
         foreach($this->pagesData as $pageData) {
-            foreach($pageData['formFields'] as $fieldName => $testFunc ) {
-                $this->$fieldName = '';
-                $this->fieldsArrayForSerialization[] = $fieldName;
-            }
+                foreach ($pageData['formFields'] as $fieldName => $testFunc) {
+                    $this->$fieldName = '';
+                    $this->fieldsArrayForSerialization[] = $fieldName;
+                }
             $this->isSubmitted[] = false;
           }
        /* $this->config = '';
         unset($this->config);*/
         //$this->validator = new FormValidator();
 
-        //SessionStore::storeinSession('user', $this);
+        //GOTSessionHandler::storeinSession('user', $this);
     }
 
 
@@ -95,7 +95,7 @@ class Registrator
 
         if (!$this->isValidForm()) return;
 
-        SessionStore::storeinSession('user', $this);
+        GOTSessionHandler::storeinSession('user', $this);
 
         FileHandler::saveUser($this);// TODO check for existing json file about this user registration
 

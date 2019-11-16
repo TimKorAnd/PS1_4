@@ -2,10 +2,14 @@
 
     require_once '../src/Registrator.php';
     require_once '../src/FormValidator.php';
-    require_once '../src/SessionStore.php';
+    require_once '../src/GOTSessionHandler.php';
     require_once '../src/FileHandler.php';
 
     session_start(['name'=>'sayMyName']);
+
+    if (isset($_POST['form-3__submit-button-signout'])){
+        GOTSessionHandler::sessionDestroy();
+    }
 
     $user = $_SESSION['user'] ?? new Registrator();
 
